@@ -1,6 +1,8 @@
 package edu.shadowauction.shadowauction;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -12,12 +14,15 @@ import java.io.FileNotFoundException;
 
 public class MainController {
     @FXML
-    private Label welcomeText;
-    @FXML
     private ImageView logoShadowAuction;
 
+    public void initialize() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> fadeIn()));
+        timeline.play();
+    }
+
     @FXML
-    protected void onHelloButtonClick() {
+    protected void fadeIn() {
 
         FadeTransition ft = new FadeTransition(Duration.seconds(2), logoShadowAuction);
         ft.setFromValue(0.0);
