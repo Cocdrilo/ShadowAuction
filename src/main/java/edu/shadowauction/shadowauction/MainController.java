@@ -16,10 +16,13 @@ public class MainController {
     @FXML
     private ImageView logoShadowAuction;
 
+    //En JavaFX Initialize se llama siempre despues de crear el controlador.
     public void initialize() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> fadeIn()));
         timeline.play();
     }
+
+    
 
     @FXML
     protected void fadeIn() {
