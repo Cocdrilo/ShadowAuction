@@ -6,9 +6,10 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="621.0" style="-fx-background-color: #302F2E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.MainController">
    <children>
-      <ImageView fx:id="logoShadowAuction" fitHeight="206.0" fitWidth="590.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoShadowAuction" fitHeight="229.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/Logo.PNG" />
-         </image></ImageView>
+         </image>
+      </ImageView>
    </children>
 </StackPane>

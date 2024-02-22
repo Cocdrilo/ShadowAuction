@@ -29,6 +29,7 @@ public class MainController {
     private ImageView logoShadowAuction;
 
 
+
     //En JavaFX Initialize se llama siempre después de crear el controlador.
     public void initialize() {
         playFadeInTimeline();
