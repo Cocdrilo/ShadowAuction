@@ -2,15 +2,24 @@
 
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #302F2E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="804.0" style="-fx-background-color: #302F2E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.DisclaimerController">
    <children>
-      <ImageView fitHeight="373.0" fitWidth="602.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="613.0" fitWidth="848.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/Disclaimer.PNG" />
          </image>
       </ImageView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="138.0" fitWidth="137.0" layoutX="62.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Disclaimer_logo.svg.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>
