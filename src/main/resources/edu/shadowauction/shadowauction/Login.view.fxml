@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -29,5 +30,43 @@
             <Font name="Arial Black" size="13.0" />
          </font>
       </Label>
+      <Label opacity="0.66" style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="START FOR FREE" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="15.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="130.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="Create new account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <padding>
+            <Insets bottom="75.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="15.0" />
+         </StackPane.margin>
+      </Label>
+      <Label opacity="0.66" style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="Already a member? " textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="15.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </Label>
+      <Hyperlink style="-fx-font-family: Poppins; -fx-border-color: Transparent;" text="Log In" underline="true" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="20.0" left="123.0" />
+         </StackPane.margin>
+      </Hyperlink>
    </children>
 </StackPane>
