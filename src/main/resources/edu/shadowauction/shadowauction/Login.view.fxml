@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.shadowauction.shadowauction.LoginViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<StackPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.LoginScreenController">
+   <children>
+      <ImageView fitHeight="58.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../../../images/MiniLogo.png" />
+         </image>
+      </ImageView>
+      <Label style="-fx-font-family: Poppins;" text="Shadow Auction" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets left="50.0" top="13.0" />
+         </padding>
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</StackPane>

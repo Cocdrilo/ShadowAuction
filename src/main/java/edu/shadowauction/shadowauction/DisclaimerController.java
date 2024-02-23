@@ -48,8 +48,8 @@ public class DisclaimerController {
             if (termsAndConditionsCheckBox.isSelected()) {
                 try {
                     fader.fadeNextScene(rootPane,1,"Login.view.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                } catch (IOException exceptionDuringFade) {
+                    throw new RuntimeException(exceptionDuringFade);
                 }
             } else {
                 popUpAcceptTermsLabel.setText("Please accept terms and Conditions");

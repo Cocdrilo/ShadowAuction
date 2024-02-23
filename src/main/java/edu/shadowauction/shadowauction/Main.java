@@ -3,8 +3,10 @@ package edu.shadowauction.shadowauction;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -14,6 +16,7 @@ public class Main extends Application {
         Scene introScene = new Scene(fxmlLoader.load(), 800, 640);
         mainStage.setTitle("Shadow Auction");
         mainStage.setScene(introScene);
+        mainStage.getIcons().add(new Image(new FileInputStream("src/main/resources/images/MiniLogo.PNG")));
         mainStage.show();
     }
 
