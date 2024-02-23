@@ -27,7 +27,11 @@ public class MainController {
 
     @FXML
     private ImageView logoShadowAuction;
+    private FadeUtilityClass fader;
 
+    public MainController(){
+        this.fader = new FadeUtilityClass();
+    }
 
 
     //En JavaFX Initialize se llama siempre después de crear el controlador.
@@ -37,14 +41,14 @@ public class MainController {
     }
 
     private void playFadeInTimeline() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> fadeIn()));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> fader.fadeInImage(2,logoShadowAuction)));
         timeline.play();
     }
 
     private void playSwitchSceneTimeline() {
         Timeline switchSceneTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             try {
-                fadeNextScene();
+                fader.fadeNextScene(rootPane,2,"Disclaimer.view.fxml");
             } catch (IOException e) {
                 e.printStackTrace(System.err);
             }
@@ -52,36 +56,4 @@ public class MainController {
         switchSceneTimeline.play();
     }
 
-    @FXML
-    protected void fadeIn() {
-        FadeTransition ft = new FadeTransition(Duration.seconds(2), logoShadowAuction);
-        ft.setFromValue(0.0);
-        ft.setToValue(1.0);
-        ft.play();
-    }
-
-    @FXML
-    protected void fadeNextScene() throws IOException {
-        FadeTransition ft = new FadeTransition();
-        ft.setDuration(Duration.seconds(2));
-        ft.setNode(rootPane);
-        ft.setFromValue(1);
-        ft.setToValue(0.0);
-        ft.setOnFinished((ActionEvent e) -> {
-            try {
-                loadNextScene();
-            } catch (IOException ex) {
-                ex.printStackTrace(System.err);
-            }
-        });
-        ft.play();
-    }
-
-    private void loadNextScene() throws IOException {
-        Parent secondView;
-        secondView = FXMLLoader.load(getClass().getResource("Disclaimer.view.fxml"));
-        Scene newScene = new Scene(secondView, 800, 640);
-        Stage curStage = (Stage) rootPane.getScene().getWindow();
-        curStage.setScene(newScene);
-    }
 }

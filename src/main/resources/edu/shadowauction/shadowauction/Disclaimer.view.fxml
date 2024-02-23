@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
@@ -23,7 +24,7 @@
             <Insets bottom="400.0" right="450.0" />
          </StackPane.margin>
       </ImageView>
-      <CheckBox alignment="CENTER" mnemonicParsing="false" text="By checking this box, I confirm that I have read and understood the disclaimer message." textFill="#fffbf9" underline="true" StackPane.alignment="BOTTOM_LEFT">
+      <CheckBox fx:id="termsAndConditionsCheckBox" alignment="CENTER" mnemonicParsing="false" text="By checking this box, I confirm that I have read and understood the disclaimer message." textFill="#fffbf9" underline="true" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </StackPane.margin>
@@ -31,7 +32,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </CheckBox>
-      <Button mnemonicParsing="false" styleClass="dark" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" text="CONFIRM" underline="true" StackPane.alignment="BOTTOM_CENTER">
+      <Button fx:id="acceptButton" mnemonicParsing="false" styleClass="dark" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" text="CONFIRM" underline="true" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
             <Insets bottom="10.0" />
          </StackPane.margin>
@@ -39,5 +40,13 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="popUpAcceptTermsLabel" textFill="RED" StackPane.alignment="BOTTOM_LEFT">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="75.0" left="74.0" />
+         </padding>
+      </Label>
    </children>
 </StackPane>
