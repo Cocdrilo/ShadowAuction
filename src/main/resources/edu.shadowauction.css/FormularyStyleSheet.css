@@ -1,0 +1,51 @@
+.jfx-text-field,
+.dark,
+.jfx-combo-box {
+    -fx-background-color: #141942;
+    -fx-border-radius: 20px;
+    -fx-border-color: #CCCCCC;
+    -fx-text-fill: #CCCCCC;
+}
+
+.jfx-text-field {
+    -fx-padding: 0.333333em 1em 0.333333em 1em;
+}
+
+.jfx-combo-box {
+    -fx-padding: 0em 1em 0em 1em;
+}
+
+.jfx-text-field > .input-line,
+.jfx-combo-box > .input-line {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0px;
+    -fx-translate-y: 0px;
+}
+
+.jfx-text-field > .input-focused-line,
+.jfx-combo-box > .input-focused-line {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0px;
+}
+
+.blue{
+    -fx-background-color: #44A7FF;
+    -fx-border-radius: 20px;
+    -fx-border-color: #CCCCCC;
+    -fx-text-fill: #CCCCCC;
+    -fx-background-radius: 20px;
+}
+
+.dark:hover,
+.blue:hover {
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+            linear-gradient(#20262b, #191d22),
+            radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9) );
+    -fx-background-radius: 20px;
+    -fx-background-insets: 0,1,2,0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-padding: 10 20 10 20;
+}
