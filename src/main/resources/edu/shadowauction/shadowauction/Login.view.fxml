@@ -9,9 +9,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="804.0" style="-fx-background-color: #141942;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.LoginScreenController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="804.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.LoginScreenController">
    <children>
       <ImageView fitHeight="58.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
@@ -100,5 +101,17 @@
             <Insets bottom="145.0" left="164.0" />
          </StackPane.margin>
       </Button>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="313.0">
+         <StackPane.margin>
+            <Insets left="150.0" />
+         </StackPane.margin>
+         <children>
+            <ImageView fitHeight="336.0" fitWidth="317.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../images/christies-auction.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
    </children>
 </StackPane>
