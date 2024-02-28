@@ -6,26 +6,50 @@ import java.sql.*;
 
 public class JDBC {
 
-    public static String url = "jdbc:mysql://localhost:3306/sadb_schema";
-    public static String user = "root";
-    public static String password1= "240103";
+    public static String url_db = "jdbc:mysql://localhost:3306/sadb_schema";
+    public static String user_db = "root";
+    public static String password_db= "240103";
 
-    public static boolean register(String username, String password){
+    public static boolean register(String username, String userpassword){
         try{
-            Connection connection = DriverManager.getConnection(url, user, password1);
 
-            PreparedStatement insertUser = connection.prepareStatement(
-                    "INSERT INTO USERS(username, password) VALUES(?,?)"
-            );
+            if(!checkUser(username)){
+                Connection connection = DriverManager.getConnection(url_db, user_db, password_db);
 
-            insertUser.setString(1,username);
-            insertUser.setString(2,password);
+                PreparedStatement insertUser = connection.prepareStatement(
+                        "INSERT INTO USERS(username, password) VALUES(?,?)"
+                );
 
-            insertUser.executeUpdate();
-            return true;
+                insertUser.setString(1, username);
+                insertUser.setString(2, userpassword);
+
+                insertUser.executeUpdate();
+                return true;
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static boolean checkUser(String username){
+        try {
+            Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
+
+            PreparedStatement checkUserExists = connection.prepareStatement(
+                    "SELECT * FROM USERS WHERE USERNAME = ?"
+            );
+            checkUserExists.setString(1,username);
+
+            ResultSet resultSet = checkUserExists.executeQuery();
+
+            if(!resultSet.isBeforeFirst()){
+                return false;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
     }
 }

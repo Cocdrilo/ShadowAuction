@@ -20,7 +20,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        System.out.println(JDBC.register("username1234", "pasword"));
+        System.out.println(JDBC.register("username123", "pasword"));
 
         launch();
     }
