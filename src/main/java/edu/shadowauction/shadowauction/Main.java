@@ -1,5 +1,6 @@
 package edu.shadowauction.shadowauction;
 
+import com.mysqlconnection.JDBC;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
+        System.out.println(JDBC.register("username1234", "pasword"));
+
         launch();
     }
 }
