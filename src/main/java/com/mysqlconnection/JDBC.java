@@ -52,4 +52,26 @@ public class JDBC {
 
         return true;
     }
+
+    public static boolean validateLogin(String username, String userpassword){
+        try {
+            Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
+
+            PreparedStatement validateUser = connection.prepareStatement(
+                    "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?"
+            );
+
+            validateUser.setString(1,username);
+            validateUser.setString(2,userpassword);
+
+            ResultSet resultSet = validateUser.executeQuery();
+
+            if(!resultSet.isBeforeFirst()){
+                return false;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return true;
+    }
 }
