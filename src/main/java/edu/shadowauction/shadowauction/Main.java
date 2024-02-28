@@ -18,8 +18,9 @@ public class Main extends Application {
         mainStage.setScene(introScene);
         mainStage.getIcons().add(new Image(new FileInputStream("src/main/resources/images/MiniLogo.PNG")));
         mainStage.show();
+        mainStage.setMinHeight(605);
+        mainStage.setMinWidth(804);
     }
-
     public static void main(String[] args) {
         launch();
     }
