@@ -91,14 +91,14 @@
             <Insets bottom="100.0" left="8.0" right="650.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="dark" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Lost Account" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="dark" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Lost Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="145.0" left="15.0" />
+            <Insets bottom="145.0" left="15.0" top="425.0" />
          </StackPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="blue" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Create Account" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="blue" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Create Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="145.0" left="164.0" />
+            <Insets left="164.0" top="280.0" />
          </StackPane.margin>
       </Button>
       <VBox fx:id="loginImagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="630.0" styleClass="loginImagePane" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css">
