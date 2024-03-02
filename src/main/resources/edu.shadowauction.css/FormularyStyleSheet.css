@@ -1,7 +1,8 @@
 .jfx-text-field,
 .dark,
 .jfx-combo-box {
-    -fx-background-color: #141942;
+    -fx-background-color: #090a0c;
+    -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: #CCCCCC;
     -fx-text-fill: #CCCCCC;
@@ -48,4 +49,8 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-padding: 10 20 10 20;
+}
+
+.loginImagePane{
+    -fx-background-image: url("../images/Logo.PNG");
 }
