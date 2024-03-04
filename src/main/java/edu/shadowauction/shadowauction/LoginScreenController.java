@@ -48,7 +48,8 @@ public class LoginScreenController {
 
     public boolean isValidUsernameLastName(String checkedField){
         if(checkedField.isEmpty()){
-            registerErrorLabel.setText("Field is empty");
+            registerErrorLabel.setText("Username field is empty");
+            registerErrorLabel.setOpacity(1);
             return false;
         }
         return true;
@@ -57,6 +58,12 @@ public class LoginScreenController {
     public boolean isValidEmail(String email){
         if(!email.contains("@") && !email.contains(".")){
             registerErrorLabel.setText("Email is invalid");
+            registerErrorLabel.setOpacity(1);
+            return false;
+        }
+        if(!email.matches("[a-zA-Z]+\\.")){
+            registerErrorLabel.setText("Email must contain a letter before the dot");
+            registerErrorLabel.setOpacity(1);
             return false;
         }
         return true;
@@ -64,14 +71,17 @@ public class LoginScreenController {
     public boolean checkPasswordSecurity(String passwordCheck){
         if(passwordCheck.length() < 8){
             registerErrorLabel.setText("Password is too short");
+            registerErrorLabel.setOpacity(1);
             return false;
         }
         if(!passwordCheck.matches(".*[0-9].*")){
             registerErrorLabel.setText("Password must contain a number");
+            registerErrorLabel.setOpacity(1);
             return false;
         }
         if(!passwordCheck.matches(".*[A-Z].*")){
             registerErrorLabel.setText("Password must contain an uppercase letter");
+            registerErrorLabel.setOpacity(1);
             return false;
         }
         return true;

@@ -101,9 +101,9 @@
             <Insets left="300.0" top="390.0" />
          </StackPane.margin>
       </VBox>
-      <Label fx:id="registerErrorLabel" textFill="RED" StackPane.alignment="CENTER">
+      <Label fx:id="registerErrorLabel" opacity="0.0" style="-fx-background-color: #38424b;" styleClass="warning" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" textFill="RED" StackPane.alignment="CENTER">
          <StackPane.margin>
-            <Insets bottom="100.0" left="100.0" />
+            <Insets bottom="100.0" left="250.0" />
          </StackPane.margin>
          <font>
             <Font name="Franklin Gothic Medium" size="18.0" />

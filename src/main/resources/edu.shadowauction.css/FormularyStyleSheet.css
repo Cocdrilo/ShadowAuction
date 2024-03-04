@@ -54,3 +54,50 @@
 .loginImagePane{
     -fx-background-image: url("../images/Logo.PNG");
 }
+
+
+/* Credits to Palimdra for the original Css code we refactores to java-fx-css https://codepen.io/palimadra/pen/OVvbaY */
+
+.body {
+    -fx-font-family: "Arial", Helvetica, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.info, .success, .warning, .error, .validation {
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-margin: 10px 0px;
+    -fx-padding: 15px 10px 15px 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10px center;
+}
+
+.info {
+    -fx-text-fill: #00529B;
+    -fx-background-color: #BDE5F8;
+    -fx-background-image: url('https://i.imgur.com/ilgqWuX.png');
+}
+
+.success {
+    -fx-text-fill: #4F8A10;
+    -fx-background-color: #DFF2BF;
+    -fx-background-image: url('https://i.imgur.com/Q9BGTuy.png');
+}
+
+.warning {
+    -fx-text-fill: #9F6000;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/Warning.png")
+}
+
+.error {
+    -fx-text-fill: #D8000C;
+    -fx-background-color: #FFBABA;
+    -fx-background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+.validation {
+    -fx-text-fill: #D63301;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/Warning.png")
+}
