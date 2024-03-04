@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="605.0" minWidth="804.0" prefHeight="605.0" prefWidth="804.0" style="-fx-background-color: #090a0c;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.LoginScreenController">
+   <children>
+      <ImageView fitHeight="58.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../../../images/MiniLogo.png" />
+         </image>
+      </ImageView>
+      <Label style="-fx-font-family: Poppins;" text="Shadow Auction" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets left="50.0" top="13.0" />
+         </padding>
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Label>
+      <Label opacity="0.66" style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="START FOR FREE" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="15.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="130.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="Create new account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <padding>
+            <Insets bottom="75.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="100.0" left="15.0" />
+         </StackPane.margin>
+      </Label>
+      <Label opacity="0.66" style="-fx-font-family: Poppins; -fx-font-style: Bold;" text="Already a member? " textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="100.0" left="15.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </Label>
+      <Hyperlink style="-fx-font-family: Poppins; -fx-border-color: Transparent;" text="Log In" underline="true" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="120.0" left="123.0" />
+         </StackPane.margin>
+      </Hyperlink>
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="Last Name" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="155.0" right="450.0" top="50.0" />
+         </StackPane.margin>
+      </TextField>
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="290.0" promptText="Email Adress" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="8.0" top="150.0" />
+         </StackPane.margin>
+      </TextField>
+      <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Password" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="8.0" top="250.0" />
+         </StackPane.margin>
+      </PasswordField>
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="User" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="8.0" right="650.0" top="50.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="dark" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Lost Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="145.0" left="15.0" top="425.0" />
+         </StackPane.margin>
+      </Button>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="blue" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Create Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="164.0" top="280.0" />
+         </StackPane.margin>
+      </Button>
+      <VBox fx:id="loginImagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="630.0" styleClass="loginImagePane" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css">
+         <StackPane.margin>
+            <Insets left="300.0" top="390.0" />
+         </StackPane.margin>
+      </VBox>
+   </children>
+</StackPane>
