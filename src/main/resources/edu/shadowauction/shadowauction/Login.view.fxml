@@ -71,22 +71,22 @@
             <Insets bottom="120.0" left="123.0" />
          </StackPane.margin>
       </Hyperlink>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="Last Name" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+      <TextField fx:id="lastNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="Last Name" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="100.0" left="155.0" right="450.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="290.0" promptText="Email Adress" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+      <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="290.0" promptText="Email Adress" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="100.0" left="8.0" top="150.0" />
          </StackPane.margin>
       </TextField>
-      <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Password" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+      <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Password" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="100.0" left="8.0" top="250.0" />
          </StackPane.margin>
       </PasswordField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="User" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
+      <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="40.0" minWidth="30.0" prefColumnCount="0" prefHeight="40.0" prefWidth="135.0" promptText="User" styleClass="jfx-text-field" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="100.0" left="8.0" right="650.0" top="50.0" />
          </StackPane.margin>
@@ -96,15 +96,23 @@
             <Insets bottom="145.0" left="15.0" top="425.0" />
          </StackPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="blue" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Create Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
-         <StackPane.margin>
-            <Insets left="164.0" top="280.0" />
-         </StackPane.margin>
-      </Button>
       <VBox fx:id="loginImagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="630.0" styleClass="loginImagePane" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css">
          <StackPane.margin>
             <Insets left="300.0" top="390.0" />
          </StackPane.margin>
       </VBox>
+      <Label fx:id="registerErrorLabel" textFill="RED" StackPane.alignment="CENTER">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="100.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0" />
+         </font>
+      </Label>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="35.0" prefWidth="140.0" styleClass="blue" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Create Account" textFill="WHITE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="164.0" top="280.0" />
+         </StackPane.margin>
+      </Button>
    </children>
 </StackPane>

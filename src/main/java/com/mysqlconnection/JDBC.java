@@ -27,7 +27,7 @@ public class JDBC {
                 return true;
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
         return false;
     }
@@ -47,7 +47,7 @@ public class JDBC {
                 return false;
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
 
         return true;
@@ -70,7 +70,7 @@ public class JDBC {
                 return false;
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
         return true;
     }
