@@ -65,14 +65,19 @@ public class RegisterScreenController {
         return true;
     }
 
-    public boolean isValidEmail(String email){
-        if(!email.contains("@") && !email.contains(".")){
-            registerErrorLabel.setText("Email is invalid");
+    public boolean isValidEmail(String email) {
+        if (!email.contains("@")) {
+            registerErrorLabel.setText("Email is invalid: missing @ symbol");
             registerErrorLabel.setOpacity(1);
             return false;
         }
-        if(!email.matches("[a-zA-Z]+\\.")){
-            registerErrorLabel.setText("Email must contain a letter before the dot");
+        if (!email.contains(".")) {
+            registerErrorLabel.setText("Email is invalid: missing dot (.)");
+            registerErrorLabel.setOpacity(1);
+            return false;
+        }
+        if (!email.matches("[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+")) {
+            registerErrorLabel.setText("Email is invalid: incorrect format");
             registerErrorLabel.setOpacity(1);
             return false;
         }
