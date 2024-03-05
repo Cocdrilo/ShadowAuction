@@ -1,11 +1,14 @@
 package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import org.w3c.dom.Text;
+
+import java.io.IOException;
 
 public class LoginScreenController {
     @FXML
@@ -20,6 +23,14 @@ public class LoginScreenController {
     PasswordField passwordField;
     @FXML
     Label registerErrorLabel;
+    @FXML
+    Hyperlink loginHyperlink;
+
+    private FadeUtilityClass fader;
+
+    public LoginScreenController(){
+        this.fader = new FadeUtilityClass();
+    }
 
     public void registerButtonOnAction(){
         String username = usernameField.getText();
@@ -85,6 +96,10 @@ public class LoginScreenController {
             return false;
         }
         return true;
+    }
+
+    public void loginHyperlinkOnAction() throws IOException {
+        fader.fadeNextScene(rootPane,1,"Register.view.fxml");
     }
 
 
