@@ -114,5 +114,13 @@
             <Insets left="164.0" top="280.0" />
          </StackPane.margin>
       </Button>
+      <Label fx:id="registerSuccesfulLabel" opacity="0.0" style="-fx-background-color: #38424b;" styleClass="success" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" textFill="RED" StackPane.alignment="CENTER">
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="100.0" left="250.0" />
+         </StackPane.margin>
+      </Label>
    </children>
 </StackPane>

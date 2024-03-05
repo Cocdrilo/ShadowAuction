@@ -23,6 +23,8 @@ public class RegisterScreenController {
     @FXML
     Label registerErrorLabel;
     @FXML
+    Label registerSuccesfulLabel;
+    @FXML
     Hyperlink loginHyperlink;
 
     private FadeUtilityClass fader;
@@ -31,7 +33,7 @@ public class RegisterScreenController {
         this.fader = new FadeUtilityClass();
     }
 
-    public void registerButtonOnAction(){
+    public void registerButtonOnAction() throws IOException {
         String username = usernameField.getText();
         if(!isValidUsernameLastName(username)){
             return;
@@ -51,9 +53,13 @@ public class RegisterScreenController {
         if(!checkPasswordSecurity(password)){
             return;
         }
+
         //If all checks passed register user
         System.out.println(username + " " + lastName + " " + email + " " + password);
         //JDBC.register(username, password);
+        registerSuccesfulLabel.setText("User registered successfully");
+        registerSuccesfulLabel.setOpacity(1);
+        loginHyperlinkOnAction();
     }
 
     public boolean isValidUsernameLastName(String checkedField){
@@ -103,7 +109,7 @@ public class RegisterScreenController {
     }
 
     public void loginHyperlinkOnAction() throws IOException {
-        fader.fadeNextScene(rootPane,1,"Login.view.fxml");
+        fader.fadeNextScene(rootPane,2,"Login.view.fxml");
     }
 
 
