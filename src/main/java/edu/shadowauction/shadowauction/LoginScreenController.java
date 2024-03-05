@@ -1,5 +1,6 @@
 package edu.shadowauction.shadowauction;
 
+import com.mysqlconnection.JDBC;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -34,7 +35,7 @@ public class LoginScreenController {
 
         //Try to LogIn
         System.out.println(email + " " + password);
-        //JDBC.register(username, password);
+        //JDBC.validateLogin(email, password);
     }
 
     public void loginHyperlinkOnAction() throws IOException {
