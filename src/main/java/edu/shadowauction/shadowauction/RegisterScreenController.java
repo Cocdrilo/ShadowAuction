@@ -1,5 +1,6 @@
 package edu.shadowauction.shadowauction;
 
+import com.mysqlconnection.JDBC;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -56,7 +57,7 @@ public class RegisterScreenController {
 
         //If all checks passed register user
         System.out.println(username + " " + lastName + " " + email + " " + password);
-        //JDBC.register(username, password);
+        JDBC.register(username, lastName, email, password);
         registerSuccesfulLabel.setText("User registered successfully");
         registerSuccesfulLabel.setOpacity(1);
         loginHyperlinkOnAction();

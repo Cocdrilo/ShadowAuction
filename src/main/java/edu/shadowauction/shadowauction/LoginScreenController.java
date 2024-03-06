@@ -35,7 +35,12 @@ public class LoginScreenController {
 
         //Try to LogIn
         System.out.println(email + " " + password);
-        //JDBC.validateLogin(email, password);
+        if(JDBC.validateLogin(email, password)){
+            System.out.println("User with email: "+ email + " is in the database");
+        }else {
+            System.out.println("User with email: "+ email + " is not in the database");
+
+        }
     }
 
     public void loginHyperlinkOnAction() throws IOException {
