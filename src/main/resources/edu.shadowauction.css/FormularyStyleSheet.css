@@ -81,7 +81,7 @@
 .success {
     -fx-text-fill: #4F8A10;
     -fx-background-color: #DFF2BF;
-    -fx-background-image: url('https://i.imgur.com/Q9BGTuy.png');
+    -fx-background-image: url("../images/Success.png");
 }
 
 .warning {
