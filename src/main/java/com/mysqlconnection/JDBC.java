@@ -10,18 +10,20 @@ public class JDBC {
     public static String user_db = "root";
     public static String password_db= "240103";
 
-    public static boolean register(String username, String userpassword){
+    public static boolean register(String username, String lastname, String email, String userpassword){
         try{
 
             if(!checkUser(username)){
                 Connection connection = DriverManager.getConnection(url_db, user_db, password_db);
 
                 PreparedStatement insertUser = connection.prepareStatement(
-                        "INSERT INTO USERS(username, password) VALUES(?,?)"
+                        "INSERT INTO USERS(username, lastname, email, password) VALUES(?,?,?,?)"
                 );
 
                 insertUser.setString(1, username);
-                insertUser.setString(2, userpassword);
+                insertUser.setString(2, lastname);
+                insertUser.setString(3, email);
+                insertUser.setString(4, userpassword);
 
                 insertUser.executeUpdate();
                 return true;
@@ -32,14 +34,14 @@ public class JDBC {
         return false;
     }
 
-    public static boolean checkUser(String username){
+    public static boolean checkUser(String email){
         try {
             Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
 
             PreparedStatement checkUserExists = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE USERNAME = ?"
+                    "SELECT * FROM USERS WHERE EMAIL = ?"
             );
-            checkUserExists.setString(1,username);
+            checkUserExists.setString(1,email);
 
             ResultSet resultSet = checkUserExists.executeQuery();
 
@@ -53,15 +55,15 @@ public class JDBC {
         return true;
     }
 
-    public static boolean validateLogin(String username, String userpassword){
+    public static boolean validateLogin(String email, String userpassword){
         try {
             Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
 
             PreparedStatement validateUser = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?"
+                    "SELECT * FROM USERS WHERE EMAIL = ? AND PASSWORD = ?"
             );
 
-            validateUser.setString(1,username);
+            validateUser.setString(1,email);
             validateUser.setString(2,userpassword);
 
             ResultSet resultSet = validateUser.executeQuery();

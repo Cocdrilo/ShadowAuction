@@ -24,13 +24,6 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
 
-
-        //Checkea el registro para introducir datos en la DB
-        //System.out.println(JDBC.register("username123", "pasword"));
-
-        //Checkea la DB para saber si existe usuario con esos datos
-        //System.out.println(JDBC.validateLogin("username1234", "pasword"));
-
         launch();
     }
 }

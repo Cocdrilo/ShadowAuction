@@ -57,7 +57,7 @@ public class RegisterScreenController {
 
         //If all checks passed register user
         System.out.println(username + " " + lastName + " " + email + " " + password);
-        //JDBC.register(username, password);
+        JDBC.register(username, lastName, email, password);
         registerSuccesfulLabel.setText("User registered successfully");
         registerSuccesfulLabel.setOpacity(1);
         loginHyperlinkOnAction();
