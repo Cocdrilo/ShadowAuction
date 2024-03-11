@@ -34,14 +34,14 @@ public class JDBC {
         return false;
     }
 
-    public static boolean checkUser(String username){
+    public static boolean checkUser(String email){
         try {
             Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
 
             PreparedStatement checkUserExists = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE USERNAME = ?"
+                    "SELECT * FROM USERS WHERE EMAIL = ?"
             );
-            checkUserExists.setString(1,username);
+            checkUserExists.setString(1,email);
 
             ResultSet resultSet = checkUserExists.executeQuery();
 
