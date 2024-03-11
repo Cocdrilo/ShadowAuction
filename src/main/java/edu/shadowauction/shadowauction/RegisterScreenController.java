@@ -1,5 +1,6 @@
 package edu.shadowauction.shadowauction;
 
+import com.mysqlconnection.JDBC;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -40,7 +41,7 @@ public class RegisterScreenController {
         }
 
         String email = emailField.getText();
-        if(!isValidEmail(email)){
+        if(!isValidEmail(email) || !emailAlreadyRegistered(email)){
             return;
         }
 
@@ -89,6 +90,16 @@ public class RegisterScreenController {
         }
         return true;
     }
+
+    public boolean emailAlreadyRegistered(String email){
+        if(JDBC.checkUser(email)){
+            registerErrorLabel.setText("Email already registered");
+            registerErrorLabel.setOpacity(1);
+            return false;
+        }
+        return true;
+    }
+
     public boolean checkPasswordSecurity(String passwordCheck){
         if(passwordCheck.length() < 8){
             registerErrorLabel.setText("Password is too short");

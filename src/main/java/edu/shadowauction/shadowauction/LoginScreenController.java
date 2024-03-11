@@ -33,9 +33,23 @@ public class LoginScreenController {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        //Try to LogIn
         System.out.println(email + " " + password);
-        //JDBC.validateLogin(email, password);
+
+        if(JDBC.validateLogin(email, password)){
+            System.out.println("Login Successful");
+        }else{
+            setLabelForLogInErrors(email);
+        }
+
+    }
+
+    public void setLabelForLogInErrors(String email){
+        if (!JDBC.checkUser(email)){
+            registerErrorLabel.setText("Email not regisgered in the system");
+        }
+        else{
+            registerErrorLabel.setText("Password not valid for that email");
+        }
     }
 
     public void loginHyperlinkOnAction() throws IOException {
