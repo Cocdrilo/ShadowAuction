@@ -46,7 +46,7 @@ public class LoginScreenController {
     public void setLabelForLogInErrors(String email){
         if (!JDBC.checkUser(email)){
             registerErrorLabel.setOpacity(1);
-            registerErrorLabel.setText("Email not regisgered in the system");
+            registerErrorLabel.setText("Email not registered in the system");
         }
         else{
             registerErrorLabel.setOpacity(1);
