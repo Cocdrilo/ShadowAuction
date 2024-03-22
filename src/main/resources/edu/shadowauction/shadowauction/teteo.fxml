@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Button fx:id="btnStart" defaultButton="true" layoutX="168.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClickStartButton" prefHeight="35.0" prefWidth="117.0" text="Start" />
+        <Label fx:id="labelTitleBase" layoutX="35.0" layoutY="15.0" text="Cronometro">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnStop" cancelButton="true" depthTest="DISABLE" layoutX="168.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickStopButton" prefHeight="34.0" prefWidth="117.0" text="Stop" />
+        <Label id="labelTitleBase" fx:id="labelTitleTimes" layoutX="459.0" layoutY="30.0" text="Tiempos" />
+        <Label fx:id="labelTimes" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="408.0" layoutY="80.0" prefHeight="287.0" prefWidth="153.0" text="No hay marcas guardadas" textAlignment="CENTER" />
+        <Button fx:id="btnTime" blendMode="HARD_LIGHT" layoutX="121.0" layoutY="66.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="212.0" text="00:00:00">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
