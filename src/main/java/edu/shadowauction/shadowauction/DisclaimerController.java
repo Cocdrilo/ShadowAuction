@@ -47,7 +47,7 @@ public class DisclaimerController {
         acceptButton.setOnAction((ActionEvent event) -> {
             if (termsAndConditionsCheckBox.isSelected()) {
                 try {
-                    fader.fadeNextScene(rootPane,1,"Auction.view.fxml");
+                    fader.fadeNextScene(rootPane,1,"Register.view.fxml");
                 } catch (IOException exceptionDuringFade) {
                     throw new RuntimeException(exceptionDuringFade);
                 }
