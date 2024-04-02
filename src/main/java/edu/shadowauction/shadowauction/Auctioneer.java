@@ -27,12 +27,12 @@ public class Auctioneer {
         frases.add("¡El momento de la oportunidad es ahora!");
         frases.add("¿Algún interesado en llevarse este objeto a casa?");
         frases.add("¡Suban esas pujas, caballeros!");
-        frases.add("¡La competencia está reñida, pero aún hay espacio para una oferta más!");
+        frases.add("¡La competencia está reñida!");
         frases.add("¡Este es su momento para brillar!");
         frases.add("¿Quién se lleva este tesoro a casa hoy?");
-        frases.add("¡No dejen que se les escape esta oportunidad única!");
+        frases.add("¡No dejen que se escape esta oportunidad única!");
         frases.add("¡Un objeto tan valioso merece una puja aún mayor!");
-        frases.add("¡Hagamos que el valor de este objeto suba aún más alto!");
+        frases.add("¡Hagamos que el valor de este objeto suba aún más!");
     }
 
     public String obtenerFraseAleatoria() {

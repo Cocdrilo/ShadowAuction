@@ -20,17 +20,16 @@ public class AuctionController{
     @FXML
     private Button temporizador;
     @FXML
-    private Label labelTimer;
-    @FXML
-    private AnchorPane parentNode;
+    private Button botonX12,botonX15,botonX20;
     @FXML
     private Label auctioneerLabel;
     @FXML
     private ImageView auctioneerImage;
+    @FXML
+    private Label biggestBid;
     private Timeline timeline;
     private int seconds = 5 ;
     private int milliseconds = 0;
-    private Thread hilo;
 
     public AuctionController() throws FileNotFoundException {
         this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
@@ -41,8 +40,43 @@ public class AuctionController{
     }
 
     private void showAuctioneerAfterFade() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event ->         auctioneerImage.setImage(genericAuctioneer.getAuctioneerImage())));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.25), event -> auctioneerImage.setImage(genericAuctioneer.getAuctioneerImage())));
         timeline.play();
+    }
+
+    @FXML
+    private void onActionBotonX12() {
+        String currentBidText = biggestBid.getText();
+        int currentBid = extractAmount(currentBidText);
+        int newBid = (int) Math.round(currentBid * 1.2);
+        updateBidLabel(newBid);
+    }
+
+    @FXML
+    private void onActionBotonX15() {
+        String currentBidText = biggestBid.getText();
+        int currentBid = extractAmount(currentBidText);
+        int newBid = (int) Math.round(currentBid * 1.5);
+        updateBidLabel(newBid);
+    }
+
+    @FXML
+    private void onActionBotonX20() {
+        String currentBidText = biggestBid.getText();
+        int currentBid = extractAmount(currentBidText);
+        int newBid = (int) Math.round(currentBid * 2);
+        updateBidLabel(newBid);
+    }
+
+    private int extractAmount(String bidText) {
+        // Remove the euro symbol and any non-numeric characters
+        String amountString = bidText.replaceAll("[^\\d.]", "");
+        return Integer.parseInt(amountString);
+    }
+
+    private void updateBidLabel(int newBid) {
+        // Add euro symbol to the formatted bid and set it to the label
+        biggestBid.setText(newBid + " €");
     }
 
 
