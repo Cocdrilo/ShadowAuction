@@ -28,8 +28,10 @@ public class AuctionController{
     @FXML
     private Label biggestBid;
     private Timeline timeline;
-    private int seconds = 5 ;
+    private int seconds = 8 ;
     private int milliseconds = 0;
+    //Necesario para que el temporizador no se ejecute varias veces a la vez
+    private boolean timerRunning = false;
 
     public AuctionController() throws FileNotFoundException {
         this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
@@ -50,6 +52,7 @@ public class AuctionController{
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.2);
         updateBidLabel(newBid);
+        restartTimer();
     }
 
     @FXML
@@ -58,6 +61,7 @@ public class AuctionController{
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.5);
         updateBidLabel(newBid);
+        restartTimer();
     }
 
     @FXML
@@ -66,6 +70,19 @@ public class AuctionController{
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 2);
         updateBidLabel(newBid);
+        restartTimer();
+    }
+
+    private void restartTimer() {
+        if (timerRunning) {
+            timeline.stop();
+            timerRunning = false;
+        }
+        seconds = 8;
+        milliseconds = 0;
+        temporizador.setText("08:00");
+        startTimer();
+        auctioneerLabel.setText(genericAuctioneer.obtenerFraseAleatoria());
     }
 
     private int extractAmount(String bidText) {
@@ -75,7 +92,7 @@ public class AuctionController{
     }
 
     private void updateBidLabel(int newBid) {
-        // Add euro symbol to the formatted bid and set it to the label
+        // Actualizar la etiqueta de la puja más alta y reiniciar el temporizador
         biggestBid.setText(newBid + " €");
     }
 
@@ -83,28 +100,28 @@ public class AuctionController{
     @FXML
     private void onActionBotonTimer(){
         auctioneerLabel.setText(genericAuctioneer.obtenerFraseAleatoria());
-        start();
+        startTimer();
     }
 
     @FXML
-    public void start() {
-        timeline = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                milliseconds -= 1;
-                if (milliseconds < 0) {
-                    milliseconds = 99;
-                    seconds--;
-                }
-                if (seconds < 0) {
-                    timeline.stop();
-                    System.out.println("Tiempo terminado");
-                } else {
-                    temporizador.setText(String.format("%02d:%02d\n", seconds, milliseconds));
-                }
+    private void startTimer() {
+
+        timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+            milliseconds -= 1;
+            if (milliseconds < 0) {
+                milliseconds = 99;
+                seconds--;
+            }
+            if (seconds < 0) {
+                timeline.stop();
+                System.out.println("Tiempo terminado");
+            } else {
+                temporizador.setText(String.format("%02d:%02d\n", seconds, milliseconds));
             }
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+        timerRunning = true;
     }
+
 }
