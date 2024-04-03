@@ -2,13 +2,10 @@ package edu.shadowauction.shadowauction;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
@@ -16,7 +13,6 @@ import java.io.FileNotFoundException;
 public class AuctionController{
 
     private Auctioneer genericAuctioneer;
-
     @FXML
     private Button temporizador;
     @FXML
@@ -27,11 +23,14 @@ public class AuctionController{
     private ImageView auctioneerImage;
     @FXML
     private Label biggestBid;
+    @FXML
+    private Label winnerBid;
     private Timeline timeline;
     private int seconds = 8 ;
     private int milliseconds = 0;
     //Necesario para que el temporizador no se ejecute varias veces a la vez
     private boolean timerRunning = false;
+    private boolean bidEnded = false;
 
     public AuctionController() throws FileNotFoundException {
         this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
@@ -48,6 +47,9 @@ public class AuctionController{
 
     @FXML
     private void onActionBotonX12() {
+        if(bidEnded){
+            return;
+        }
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.2);
@@ -57,6 +59,9 @@ public class AuctionController{
 
     @FXML
     private void onActionBotonX15() {
+        if(bidEnded){
+            return;
+        }
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.5);
@@ -66,6 +71,9 @@ public class AuctionController{
 
     @FXML
     private void onActionBotonX20() {
+        if(bidEnded){
+            return;
+        }
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 2);
@@ -115,6 +123,9 @@ public class AuctionController{
             if (seconds < 0) {
                 timeline.stop();
                 System.out.println("Tiempo terminado");
+                winnerBid.setText("Winner of the bid is : " +" "+ biggestBid.getText());
+                bidEnded = true;
+
             } else {
                 temporizador.setText(String.format("%02d:%02d\n", seconds, milliseconds));
             }
