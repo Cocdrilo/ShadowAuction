@@ -28,7 +28,7 @@ public class LoginScreenController {
         this.fader = new FadeUtilityClass();
     }
 
-    public void signUpButtonOnAction(){
+    public void signUpButtonOnAction() throws IOException {
 
         String email = emailField.getText();
         String password = passwordField.getText();
@@ -37,6 +37,7 @@ public class LoginScreenController {
 
         if(JDBC.validateLogin(email, password)){
             System.out.println("Login Successful");
+            fader.fadeNextScene(rootPane,2,"Auction.view.fxml");
         }else{
             setLabelForLogInErrors(email);
         }
