@@ -26,3 +26,23 @@
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-padding: 10 20 10 20;
 }
+
+.biddingPad{
+    -fx-background-image: url("../images/BiddingPad.png");
+    -fx-background-size: 125%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+}
+.biddingPad:hover{
+    -fx-background-image: url("../images/BiddingPadHover.png");
+    -fx-background-size: 125%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-padding :0;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+}

@@ -22,7 +22,7 @@ public class DisclaimerController {
     private CheckBox termsAndConditionsCheckBox;
     @FXML
     private Label popUpAcceptTermsLabel;
-    private FadeUtilityClass fader;
+    private final FadeUtilityClass fader;
 
     public DisclaimerController(){
         this.fader = new FadeUtilityClass();
