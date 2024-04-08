@@ -32,12 +32,15 @@ public class AuctionController{
     private int milliseconds = 0;
     //Necesario para que el temporizador no se ejecute varias veces a la vez
     private boolean timerRunning = false;
+    private WebSocketServerMain serverMain;
 
     public AuctionController() throws FileNotFoundException {
+        this.serverMain = new WebSocketServerMain();
         this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
     }
 
     public void initialize() {
+        serverMain.startServer();
         showAuctioneerAfterFade();
     }
 
