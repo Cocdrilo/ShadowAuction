@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage mainStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AuctionSelection.view.fxml"));
         Scene introScene = new Scene(fxmlLoader.load(), 800, 640);
         mainStage.setTitle("Shadow Auction");
         mainStage.setScene(introScene);

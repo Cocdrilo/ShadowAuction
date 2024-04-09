@@ -37,7 +37,7 @@ public class LoginScreenController {
 
         if(JDBC.validateLogin(email, password)){
             System.out.println("Login Successful");
-            fader.fadeNextScene(rootPane,2,"Auction.view.fxml");
+            fader.fadeNextScene(rootPane,2,"AuctionSelection.view.fxml");
         }else{
             setLabelForLogInErrors(email);
         }
