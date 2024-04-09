@@ -17,7 +17,6 @@ public class WebSocketClientTest {
 
             // connect to server
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Welcome to Tiny Chat!");
             System.out.println("What's your name?");
             String user = scanner.nextLine();
             Session session = client.connectToServer(AuctionClient.class, new URI(SERVER));
