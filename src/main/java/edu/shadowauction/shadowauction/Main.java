@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
     @Override
@@ -17,7 +18,7 @@ public class Main extends Application {
         Scene introScene = new Scene(fxmlLoader.load(), 800, 640);
         mainStage.setTitle("Shadow Auction");
         mainStage.setScene(introScene);
-        mainStage.getIcons().add(new Image(new FileInputStream("src/main/resources/images/MiniLogo.PNG")));
+        mainStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/MiniLogo.png")));
         mainStage.show();
         mainStage.setMinHeight(605);
         mainStage.setMinWidth(804);

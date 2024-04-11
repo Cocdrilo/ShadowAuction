@@ -1,14 +1,12 @@
 package edu.shadowauction.shadowauction;
+import edu.shadowauction.shadowauction.server.WebSocketServerMain;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
@@ -36,7 +34,7 @@ public class AuctionController{
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
-        this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
+        this.genericAuctioneer = new Auctioneer("/images/christies-auction.jpg");
     }
 
     public void initialize() {
