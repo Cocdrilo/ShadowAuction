@@ -13,7 +13,7 @@ public class Auctioneer {
 
     public Auctioneer(String imageURL) throws FileNotFoundException {
         frases = new ArrayList<String>();
-        this.auctioneerImage = new Image(new FileInputStream(imageURL));
+        this.auctioneerImage = new Image(getClass().getResourceAsStream(imageURL));
         cargarFrases();
     }
 

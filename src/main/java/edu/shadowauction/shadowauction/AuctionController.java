@@ -36,7 +36,7 @@ public class AuctionController{
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
-        this.genericAuctioneer = new Auctioneer("src/main/resources/images/christies-auction.jpg");
+        this.genericAuctioneer = new Auctioneer("/images/christies-auction.jpg");
     }
 
     public void initialize() {
