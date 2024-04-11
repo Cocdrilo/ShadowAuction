@@ -1,5 +1,7 @@
-package edu.shadowauction.shadowauction;
+package edu.shadowauction.shadowauction.server;
 import org.glassfish.tyrus.server.Server;
+import java.util.Scanner;
+
 
 public class WebSocketServerMain {
     private static WebSocketServerMain instance;
@@ -32,4 +34,18 @@ public class WebSocketServerMain {
             server.stop();
         }
     }
+
+    public static void main(String[] args) {
+        WebSocketServerMain serverMain = WebSocketServerMain.getInstance();
+        serverMain.startServer();
+
+        // Mantén el servidor en ejecución hasta que se reciba una entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Presiona Enter para detener el servidor...");
+        scanner.nextLine();
+
+        serverMain.stopServer();
+    }
+
 }
+

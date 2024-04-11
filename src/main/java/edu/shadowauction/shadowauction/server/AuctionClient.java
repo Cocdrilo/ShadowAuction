@@ -1,4 +1,4 @@
-package edu.shadowauction.shadowauction;
+package edu.shadowauction.shadowauction.server;
 import javax.websocket.*;
 
 @ClientEndpoint

@@ -1,8 +1,9 @@
-package edu.shadowauction.shadowauction;
+package edu.shadowauction.shadowauction.server;
 import javax.websocket.*;
 import java.net.URI;
 import java.util.Scanner;
 
+import edu.shadowauction.shadowauction.server.AuctionClient;
 import org.glassfish.tyrus.client.ClientManager;
 
 @ClientEndpoint
