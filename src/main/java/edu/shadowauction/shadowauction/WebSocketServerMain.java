@@ -17,7 +17,7 @@ public class WebSocketServerMain {
     }
 
     public void startServer() {
-        server = new Server("25.30.44.176", 8080, "/ws", AuctionServer.class);
+        server = new Server("161.35.78.190", 8080, "/ws", AuctionServer.class);
 
         try {
             server.start();

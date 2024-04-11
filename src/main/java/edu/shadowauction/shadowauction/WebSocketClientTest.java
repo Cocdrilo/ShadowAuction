@@ -9,7 +9,7 @@ import org.glassfish.tyrus.client.ClientManager;
 public class WebSocketClientTest {
 
     private Session session;
-    public static final String SERVER = "ws://25.30.44.176:8080/ws/auction/";
+    public static final String SERVER = "ws://161.35.78.190:8080/ws/auction/";
 
         public static void main(String[] args) throws Exception {
             ClientManager client = ClientManager.createClient();
