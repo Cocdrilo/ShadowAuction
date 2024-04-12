@@ -1,5 +1,6 @@
 package com.mysqlconnection;
 
+import edu.shadowauction.shadowauction.Usuario;
 import javafx.scene.input.Dragboard;
 
 import java.sql.*;
@@ -75,5 +76,26 @@ public class JDBC {
             e.printStackTrace(System.err);
         }
         return true;
+    }
+
+    public static String getUser(String email) {
+        try {
+            Connection connection = DriverManager.getConnection(url_db, user_db, password_db);
+
+            PreparedStatement getUser = connection.prepareStatement(
+                    "SELECT * FROM USERS WHERE EMAIL = ?"
+            );
+            getUser.setString(1, email);
+
+            ResultSet resultSet = getUser.executeQuery();
+
+            if (resultSet.next()) {
+                String username = resultSet.getString("username");
+                return username;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+        return null;
     }
 }

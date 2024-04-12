@@ -1,4 +1,6 @@
 package edu.shadowauction.shadowauction;
+import edu.shadowauction.shadowauction.server.AuctionClient;
+import edu.shadowauction.shadowauction.server.WebSocketClientTest;
 import edu.shadowauction.shadowauction.server.WebSocketServerMain;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -10,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AuctionController{
 
@@ -31,16 +35,28 @@ public class AuctionController{
     //Necesario para que el temporizador no se ejecute varias veces a la vez
     private boolean timerRunning = false;
     private WebSocketServerMain serverMain;
+    private List<AuctionClient> clients; // Lista para almacenar los clientes conectados
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
         this.genericAuctioneer = new Auctioneer("/images/christies-auction.jpg");
+        this.clients = new ArrayList<>();
     }
 
-    public void initialize() {
-        serverMain.startServer();
+    public void initialize() throws Exception {
         showAuctioneerAfterFade();
+        createClient();
     }
+
+
+    public void createClient() throws Exception {
+        AuctionClient client = new AuctionClient(); // Crear una nueva instancia de AuctionClient
+        client.setUsername(Usuario.getInstance(null).getUsername()); // Establecer el nombre de usuario
+        this.clients.add(client); // Agregar el cliente a la lista de clientes
+        WebSocketClientTest.connectClient(client); // Conectar el cliente al servidor
+    }
+
+
 
     private void showAuctioneerAfterFade() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.25), event -> auctioneerImage.setImage(genericAuctioneer.getAuctioneerImage())));

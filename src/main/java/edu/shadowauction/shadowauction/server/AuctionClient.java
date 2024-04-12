@@ -3,9 +3,15 @@ import javax.websocket.*;
 
 @ClientEndpoint
 public class AuctionClient {
+
+    private String username; // Nuevo campo para guardar el nombre de usuario
+
+    public void setUsername(String username) { // Método para establecer el nombre de usuario
+        this.username = username;
+    }
     @OnOpen
     public void onOpen(Session session) {
-        System.out.println("Conexión abierta: " + session.getId());
+        System.out.println("Conexión abierta: " + session.getId()+", usuario: "+username);
     }
 
     @OnMessage

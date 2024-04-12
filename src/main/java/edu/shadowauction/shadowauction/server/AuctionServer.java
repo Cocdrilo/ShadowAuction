@@ -6,7 +6,7 @@ import javax.websocket.server.ServerEndpoint;
 public class AuctionServer {
     @OnOpen
     public void onOpen(Session session) {
-        System.out.println("Conexión abierta: " + session.getId());
+        System.out.println("Conexión abierta: " + session.getId()+", usuario: "+session.getUserPrincipal().getName());
     }
 
     @OnMessage

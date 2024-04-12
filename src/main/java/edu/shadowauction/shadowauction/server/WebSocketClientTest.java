@@ -10,7 +10,14 @@ import org.glassfish.tyrus.client.ClientManager;
 public class WebSocketClientTest {
 
     private Session session;
-    public static final String SERVER = "ws://25.30.44.176:8080/ws/auction/";
+    public static final String SERVER = "ws://localhost:8080/ws/auction/";
+
+
+    public static void connectClient(AuctionClient client) throws Exception {
+        ClientManager clientManager = ClientManager.createClient();
+        Session session = clientManager.connectToServer(client, new URI(SERVER));
+        System.out.println("Client connected to server");
+    }
 
         public static void main(String[] args) throws Exception {
             ClientManager client = ClientManager.createClient();
@@ -20,7 +27,11 @@ public class WebSocketClientTest {
             Scanner scanner = new Scanner(System.in);
             System.out.println("What's your name?");
             String user = scanner.nextLine();
-            Session session = client.connectToServer(AuctionClient.class, new URI(SERVER));
+
+            AuctionClient auctionClient = new AuctionClient();
+            auctionClient.setUsername(user);
+
+            Session session = client.connectToServer(auctionClient, new URI(SERVER));
             System.out.println("You are logged in as: " + user);
 
             // send messages to server
