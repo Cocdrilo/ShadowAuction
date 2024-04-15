@@ -5,6 +5,7 @@ import edu.shadowauction.shadowauction.server.WebSocketServerMain;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,8 +15,9 @@ import javafx.util.Duration;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class AuctionController{
+public class AuctionController implements AuctionEventListener {
 
     private Auctioneer genericAuctioneer;
 
@@ -29,6 +31,8 @@ public class AuctionController{
     private ImageView auctioneerImage;
     @FXML
     private Label biggestBid;
+    @FXML
+    private Label errorLabel;
     private Timeline timeline;
     private int seconds = 8 ;
     private int milliseconds = 0;
@@ -36,6 +40,7 @@ public class AuctionController{
     private boolean timerRunning = false;
     private WebSocketServerMain serverMain;
     private List<AuctionClient> clients; // Lista para almacenar los clientes conectados
+    private String lastClientBidder = "";
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
@@ -53,6 +58,7 @@ public class AuctionController{
         AuctionClient client = new AuctionClient(); // Crear una nueva instancia de AuctionClient
         client.setUsername(Usuario.getInstance(null).getUsername()); // Establecer el nombre de usuario
         this.clients.add(client); // Agregar el cliente a la lista de clientes
+        AuctionClient.addAuctionEventListener(this);
         WebSocketClientTest.connectClient(client); // Conectar el cliente al servidor
     }
 
@@ -65,29 +71,89 @@ public class AuctionController{
 
     @FXML
     private void onActionBotonX12() {
+        if (sameUserBids()) return;
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.2);
         updateBidLabel(newBid);
+        broadcastBidUpdate(newBid);
         restartTimer();
     }
 
     @FXML
     private void onActionBotonX15() {
+        if (sameUserBids()){
+            return;
+
+        }
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 1.5);
         updateBidLabel(newBid);
+        broadcastBidUpdate(newBid);
         restartTimer();
     }
 
     @FXML
     private void onActionBotonX20() {
+        if (sameUserBids()) return;
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
         int newBid = (int) Math.round(currentBid * 2);
         updateBidLabel(newBid);
+        broadcastBidUpdate(newBid);
         restartTimer();
+    }
+
+    public void broadcastBidUpdate(int newBid) {
+        for (AuctionClient client : this.clients) {
+            WebSocketClientTest.sendMessage(client, "New bid: " + newBid);
+        }
+    }
+
+
+    private boolean sameUserBids() {
+        if(Objects.equals(lastClientBidder, Usuario.getInstance(null).getUsername())) {
+            System.out.println("No puedes pujar dos veces seguidas");
+            errorLabel.setText("No puedes pujar dos veces seguidas");
+            errorLabel.setOpacity(1);
+            hideErrorLabelAfter2Seconds();
+            return true;
+        }
+        updateLastClientBidder(lastClientBidder);
+        return false;
+    }
+
+    private void updateLastClientBidder(String lastBidder) {
+        for (AuctionClient client : this.clients) {
+            WebSocketClientTest.sendMessage(client, "LastBidder Update: " + lastBidder);
+        }
+    }
+
+    private void hideErrorLabelAfter2Seconds() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> errorLabel.setOpacity(0)));
+        timeline.play();
+    }
+
+    @Override
+    public void onNewBid(int newBid) {
+        Platform.runLater(() -> {
+            updateBidLabel(newBid);
+        });
+    }
+
+    @Override
+    public void onTimerUpdate(String timeString) {
+        Platform.runLater(() -> {
+            temporizador.setText(timeString);
+        });
+    }
+
+    @Override
+    public void onLastBidderUpdate(String lastBidder) {
+        System.out.println("Last bidder: " + lastClientBidder);
+        System.out.println("Last bidder: " + lastBidder);
+        this.lastClientBidder = lastBidder;
     }
 
     private void restartTimer() {
@@ -122,7 +188,6 @@ public class AuctionController{
 
     @FXML
     private void startTimer() {
-
         timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             milliseconds -= 1;
             if (milliseconds < 0) {
@@ -132,13 +197,22 @@ public class AuctionController{
             if (seconds < 0) {
                 timeline.stop();
                 System.out.println("Tiempo terminado");
+                broadcastTimerUpdate("Tiempo terminado");
             } else {
-                temporizador.setText(String.format("%02d:%02d\n", seconds, milliseconds));
+                String timeString = String.format("%02d:%02d\n", seconds, milliseconds);
+                temporizador.setText(timeString);
+                broadcastTimerUpdate(timeString);
             }
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
         timerRunning = true;
+    }
+
+    public void broadcastTimerUpdate(String timeString) {
+        for (AuctionClient client : this.clients) {
+            WebSocketClientTest.sendMessage(client, "Timer update: " + timeString);
+        }
     }
 
 }

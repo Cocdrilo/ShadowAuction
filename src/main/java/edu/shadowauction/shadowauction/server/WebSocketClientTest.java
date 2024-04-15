@@ -1,5 +1,6 @@
 package edu.shadowauction.shadowauction.server;
 import javax.websocket.*;
+import java.io.IOException;
 import java.net.URI;
 import java.util.Scanner;
 
@@ -9,14 +10,21 @@ import org.glassfish.tyrus.client.ClientManager;
 @ClientEndpoint
 public class WebSocketClientTest {
 
-    private Session session;
+    private static Session session;
     public static final String SERVER = "ws://localhost:8080/ws/auction/";
-
 
     public static void connectClient(AuctionClient client) throws Exception {
         ClientManager clientManager = ClientManager.createClient();
-        Session session = clientManager.connectToServer(client, new URI(SERVER));
+        session = clientManager.connectToServer(client, new URI(SERVER)); // Aquí se utiliza la variable session estática
         System.out.println("Client connected to server");
+    }
+
+    public static void sendMessage(AuctionClient client, String message) {
+        try {
+            session.getBasicRemote().sendText(message);
+        } catch (IOException e) {
+            System.err.println("Error al enviar mensaje: " + e.getMessage());
+        }
     }
 
         public static void main(String[] args) throws Exception {
