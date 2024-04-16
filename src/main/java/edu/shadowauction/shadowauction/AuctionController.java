@@ -84,7 +84,6 @@ public class AuctionController implements AuctionEventListener {
     private void onActionBotonX15() {
         if (sameUserBids()){
             return;
-
         }
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
@@ -120,7 +119,8 @@ public class AuctionController implements AuctionEventListener {
             hideErrorLabelAfter2Seconds();
             return true;
         }
-        updateLastClientBidder(lastClientBidder);
+        System.out.println("Puja realizada por: " + Usuario.getInstance(null).getUsername());
+        updateLastClientBidder(Usuario.getInstance(null).getUsername());
         return false;
     }
 
@@ -130,15 +130,17 @@ public class AuctionController implements AuctionEventListener {
         }
     }
 
-    private void hideErrorLabelAfter2Seconds() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> errorLabel.setOpacity(0)));
-        timeline.play();
+    @Override
+    public void onLastBidderUpdate(String lastBidder) {
+        this.lastClientBidder = lastBidder;
+        System.out.println("Lo que he guardado: " + lastClientBidder);
     }
 
     @Override
     public void onNewBid(int newBid) {
         Platform.runLater(() -> {
             updateBidLabel(newBid);
+            restartTimer();
         });
     }
 
@@ -149,11 +151,11 @@ public class AuctionController implements AuctionEventListener {
         });
     }
 
-    @Override
-    public void onLastBidderUpdate(String lastBidder) {
-        System.out.println("Last bidder: " + lastClientBidder);
-        System.out.println("Last bidder: " + lastBidder);
-        this.lastClientBidder = lastBidder;
+
+
+    private void hideErrorLabelAfter2Seconds() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> errorLabel.setOpacity(0)));
+        timeline.play();
     }
 
     private void restartTimer() {

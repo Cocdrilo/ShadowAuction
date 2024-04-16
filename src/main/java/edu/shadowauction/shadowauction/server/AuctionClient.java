@@ -44,11 +44,13 @@ public class AuctionClient {
                 listener.onTimerUpdate(timeString);
             }
         } else if (message.startsWith("LastBidder Update: ")){
-            System.out.println("LastBidder Update: ");
-            String lastBidder = message.substring(18);
+            String lastBidder = message.substring(19);
+            System.out.println("Last bidder: " + lastBidder);
             for (AuctionEventListener listener : listeners) {
                 listener.onLastBidderUpdate(lastBidder);
             }
+        } else{
+            System.out.println("Mensaje recibido: " + message);
         }
     }
 

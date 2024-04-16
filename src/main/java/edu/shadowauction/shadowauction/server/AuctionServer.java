@@ -16,11 +16,11 @@ public class AuctionServer {
 
     @OnMessage
     public void onMessage(String message, Session session) {
-        //System.out.println("Mensaje recibido: " + message);
         // Retransmitir el mensaje a todos los clientes
         for (Session client : clients) {
             if(message.startsWith("LastBidder Update: ")){
-                //Retransmite a todos todos independientemente de si no son los mismos
+                System.out.println("Mensaje recibido: " + message);
+                //Retransmite a todos independientemente de si no son los mismos
                 client.getAsyncRemote().sendText(message);
             }
             else if (!client.equals(session)) {
