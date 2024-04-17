@@ -21,6 +21,10 @@ public class Auctioneer {
         return auctioneerImage;
     }
 
+    public void setAuctioneerImage(String imageURL) throws FileNotFoundException {
+        this.auctioneerImage = new Image(getClass().getResourceAsStream(imageURL));
+    }
+
     private void cargarFrases() {
         frases.add("¿Quién da más?");
         frases.add("¡Vamos, valiente! ¿Alguien supera esta oferta?");

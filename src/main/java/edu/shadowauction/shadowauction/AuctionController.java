@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -41,11 +42,13 @@ public class AuctionController implements AuctionEventListener {
     private WebSocketServerMain serverMain;
     private List<AuctionClient> clients; // Lista para almacenar los clientes conectados
     private String lastClientBidder = "";
+    private ArrayList<Item> itemsToAuction = new ArrayList<>();
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
-        this.genericAuctioneer = new Auctioneer("/images/christies-auction.jpg");
+        this.genericAuctioneer = new Auctioneer("/images/Auctioneer.jpeg");
         this.clients = new ArrayList<>();
+        //this.itemsToAuction = itemsToAuction;
     }
 
     public void initialize() throws Exception {
@@ -200,6 +203,11 @@ public class AuctionController implements AuctionEventListener {
                 timeline.stop();
                 System.out.println("Tiempo terminado");
                 broadcastTimerUpdate("Tiempo terminado");
+                try {
+                    endItemSale();
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
                 String timeString = String.format("%02d:%02d\n", seconds, milliseconds);
                 temporizador.setText(timeString);
@@ -215,6 +223,10 @@ public class AuctionController implements AuctionEventListener {
         for (AuctionClient client : this.clients) {
             WebSocketClientTest.sendMessage(client, "Timer update: " + timeString);
         }
+    }
+
+    public void endItemSale() throws FileNotFoundException {
+        auctioneerImage.setImage(new Image(getClass().getResourceAsStream("/images/AuctioneerSoldGif.gif")));
     }
 
 }
