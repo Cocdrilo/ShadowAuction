@@ -11,7 +11,7 @@ import org.glassfish.tyrus.client.ClientManager;
 public class WebSocketClientTest {
 
     private static Session session;
-    public static final String SERVER = "ws://localhost:8080/ws/auction/";
+    public static final String SERVER = "ws://161.35.78.190:8080/ws/auction/";
 
     public static void connectClient(AuctionClient client) throws Exception {
         ClientManager clientManager = ClientManager.createClient();
