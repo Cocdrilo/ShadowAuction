@@ -11,4 +11,5 @@ module edu.shadowauction.shadowauction {
 
     opens edu.shadowauction.shadowauction to javafx.fxml;
     exports edu.shadowauction.shadowauction;
+    exports edu.shadowauction.shadowauction.server;
 }

@@ -51,5 +51,6 @@
             <Font name="Arial Black" size="21.0" />
          </font>
       </Label>
+      <Label fx:id="errorLabel" layoutX="193.0" layoutY="432.0" opacity="0.0" styleClass="warning" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" />
    </children>
 </AnchorPane>
