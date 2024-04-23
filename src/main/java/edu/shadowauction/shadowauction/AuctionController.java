@@ -31,6 +31,10 @@ public class AuctionController implements AuctionEventListener {
     @FXML
     private ImageView auctioneerImage;
     @FXML
+    private Label itemLabel;
+    @FXML
+    private ImageView itemImage;
+    @FXML
     private Label biggestBid;
     @FXML
     private Label errorLabel;
@@ -48,12 +52,15 @@ public class AuctionController implements AuctionEventListener {
         this.serverMain = WebSocketServerMain.getInstance();
         this.genericAuctioneer = new Auctioneer("/images/Auctioneer.jpeg");
         this.clients = new ArrayList<>();
-        //this.itemsToAuction = itemsToAuction;
+        // Crear una lista de artículos para subastar 2 articulos
+        itemsToAuction.add(new Item("Pintura", "Una pintura de un paisaje", "/images/Success.png", 100, 1));
+        itemsToAuction.add(new Item("Reloj", "Un reloj de pared antiguo", "/images/Warning.png", 50, 2));
     }
 
     public void initialize() throws Exception {
         showAuctioneerAfterFade();
         createClient();
+        showItemAfterFade();
     }
 
 
@@ -70,6 +77,13 @@ public class AuctionController implements AuctionEventListener {
     private void showAuctioneerAfterFade() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.25), event -> auctioneerImage.setImage(genericAuctioneer.getAuctioneerImage())));
         timeline.play();
+    }
+
+    private void showItemAfterFade() {
+        Item item = itemsToAuction.get(0);
+        itemImage.setImage(new Image(getClass().getResourceAsStream(item.getImage())));
+        itemLabel.setText(item.getName() + " - " + item.getDescription());
+        biggestBid.setText(item.getStartingPrice() + " €");
     }
 
     @FXML
@@ -227,6 +241,15 @@ public class AuctionController implements AuctionEventListener {
 
     public void endItemSale() throws FileNotFoundException {
         auctioneerImage.setImage(new Image(getClass().getResourceAsStream("/images/AuctioneerSoldGif.gif")));
+        auctioneerLabel.setText("¡Vendido!");
+        itemsToAuction.remove(0);
+        if (itemsToAuction.isEmpty()) {
+            temporizador.setDisable(true);
+            temporizador.setText("No hay más artículos");
+        } else {
+            temporizador.setDisable(false);
+            temporizador.setText("Siguiente artículo");
+        }
     }
 
 }

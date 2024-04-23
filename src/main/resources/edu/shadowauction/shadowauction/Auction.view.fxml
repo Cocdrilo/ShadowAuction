@@ -47,5 +47,11 @@
          </font>
       </Label>
       <Label fx:id="errorLabel" layoutX="193.0" layoutY="432.0" opacity="0.0" styleClass="warning" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" />
+      <ImageView fx:id="itemImage" fitHeight="133.0" fitWidth="227.0" layoutX="287.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="itemLabel" layoutX="236.0" layoutY="378.0" prefHeight="17.0" prefWidth="313.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
