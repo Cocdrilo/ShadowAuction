@@ -9,8 +9,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
@@ -31,9 +34,19 @@ public class AuctionController implements AuctionEventListener {
     @FXML
     private ImageView auctioneerImage;
     @FXML
+    private Label itemLabel;
+    @FXML
+    private ImageView itemImage;
+    @FXML
     private Label biggestBid;
     @FXML
     private Label errorLabel;
+    @FXML
+    private TextArea chatScreen;
+    @FXML
+    private TextField chatInput;
+    @FXML
+    private TextArea bidLog;
     private Timeline timeline;
     private int seconds = 8 ;
     private int milliseconds = 0;
@@ -48,12 +61,15 @@ public class AuctionController implements AuctionEventListener {
         this.serverMain = WebSocketServerMain.getInstance();
         this.genericAuctioneer = new Auctioneer("/images/Auctioneer.jpeg");
         this.clients = new ArrayList<>();
-        //this.itemsToAuction = itemsToAuction;
+        // Crear una lista de artículos para subastar 2 articulos
+        itemsToAuction.add(new Item("Pintura", "Una pintura de un paisaje", "/images/Success.png", 100, 1));
+        itemsToAuction.add(new Item("Reloj", "Un reloj de pared antiguo", "/images/Warning.png", 50, 2));
     }
 
     public void initialize() throws Exception {
         showAuctioneerAfterFade();
         createClient();
+        showItemAfterFade();
     }
 
 
@@ -72,6 +88,13 @@ public class AuctionController implements AuctionEventListener {
         timeline.play();
     }
 
+    private void showItemAfterFade() {
+        Item item = itemsToAuction.get(0);
+        itemImage.setImage(new Image(getClass().getResourceAsStream(item.getImage())));
+        itemLabel.setText(item.getName() + " - " + item.getDescription());
+        biggestBid.setText(item.getStartingPrice() + " €");
+    }
+
     @FXML
     private void onActionBotonX12() {
         if (sameUserBids()) return;
@@ -81,6 +104,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
+        bidLogUpdate(Usuario.getInstance(null).getUsername());
     }
 
     @FXML
@@ -94,6 +118,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
+        bidLogUpdate(Usuario.getInstance(null).getUsername());
     }
 
     @FXML
@@ -105,6 +130,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
+        bidLogUpdate(Usuario.getInstance(null).getUsername());
     }
 
     public void broadcastBidUpdate(int newBid) {
@@ -143,6 +169,7 @@ public class AuctionController implements AuctionEventListener {
     public void onNewBid(int newBid) {
         Platform.runLater(() -> {
             updateBidLabel(newBid);
+            bidLogUpdate(lastClientBidder);
             restartTimer();
         });
     }
@@ -227,6 +254,51 @@ public class AuctionController implements AuctionEventListener {
 
     public void endItemSale() throws FileNotFoundException {
         auctioneerImage.setImage(new Image(getClass().getResourceAsStream("/images/AuctioneerSoldGif.gif")));
+        auctioneerLabel.setText("¡Vendido!");
+        itemsToAuction.remove(0);
+        if (itemsToAuction.isEmpty()) {
+            temporizador.setDisable(true);
+            temporizador.setText("No hay más artículos");
+        } else {
+            startNextSale();
+        }
+    }
+    public void startNextSale(){
+        temporizador.setDisable(false);
+        temporizador.setText("08:00");
+        updateLastClientBidder("");
+        bidLog.clear();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {showItemAfterFade();showAuctioneerAfterFade();auctioneerLabel.setText("¡Siguiente artículo!");}));
+        timeline.play();
+    }
+
+    public void onActionSendChatMessage() {
+        String message = chatInput.getText();
+        chatInput.clear();
+        chatScreen.appendText("Tú: " + message + "\n");
+        broadcastChatMessage(message);
+    }
+
+    @FXML
+    public void enterPressedChatInput(){
+        chatInput.setOnKeyPressed( event -> {
+            if( event.getCode() == KeyCode.ENTER ) {
+                onActionSendChatMessage();
+            }
+        } );
+    }
+    @Override
+    public void onChatMessage(String chatMessage,String userName) {
+        Platform.runLater(() -> chatScreen.appendText(userName+":"+ chatMessage + "\n"));
+    }
+    private void broadcastChatMessage(String message) {
+        for (AuctionClient client : this.clients) {
+            WebSocketClientTest.sendMessage(client, "Chat message From: "+client.getUsername() + " "+ message);
+        }
+    }
+
+    private void bidLogUpdate(String bidder){
+        bidLog.appendText(bidder + " ha pujado " + biggestBid.getText() + "\n");
     }
 
 }
