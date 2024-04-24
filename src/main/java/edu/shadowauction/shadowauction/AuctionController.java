@@ -247,9 +247,17 @@ public class AuctionController implements AuctionEventListener {
             temporizador.setDisable(true);
             temporizador.setText("No hay más artículos");
         } else {
-            temporizador.setDisable(false);
-            temporizador.setText("Siguiente artículo");
+            startNextSale();
         }
+    }
+    public void startNextSale(){
+        temporizador.setDisable(false);
+        temporizador.setText("08:00");
+        updateLastClientBidder("");
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {showItemAfterFade();showAuctioneerAfterFade();auctioneerLabel.setText("¡Siguiente artículo!");}));
+        timeline.play();
+
+
     }
 
 }
