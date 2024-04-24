@@ -49,7 +49,14 @@ public class AuctionClient {
             for (AuctionEventListener listener : listeners) {
                 listener.onLastBidderUpdate(lastBidder);
             }
-        } else{
+        } else if(message.startsWith("Chat message From: ")){
+            //Coge el usuario que es desde el 19 hasta cuando se encuentre un " "
+            String username = message.substring(19, message.indexOf(" ", 19));
+            String chatMessage = message.substring(19+username.length());
+            for (AuctionEventListener listener : listeners) {
+                listener.onChatMessage(chatMessage, username);
+            }
+        }else{
             System.out.println("Mensaje recibido: " + message);
         }
     }
