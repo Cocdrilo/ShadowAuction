@@ -2,10 +2,15 @@ package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,6 +21,8 @@ public class AuctionSelectionController {
 
     @FXML
     private ScrollPane scrollPane;
+    @FXML
+    private AnchorPane parentNode;
 
     private ArrayList<String> test;
 
@@ -45,11 +52,20 @@ public class AuctionSelectionController {
         VBox vbox = new VBox();
         vbox.setSpacing(10);
         vbox.setPadding(new Insets(10));
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setPrefWidth(540);
+        vbox.setBackground(new Background(new BackgroundFill(Color.rgb(96,23,140), null, null)));
+        //vbox.setPrefHeight(443);
 
         // Agregar un botón para cada subasta
         for (Auction subasta : subastas) {
             String buttonText = subasta.getNombre() + " - Inicio: " + subasta.getInicio() + " - Fin: " + subasta.getFin();
             Button button = new Button(buttonText);
+            button.setPrefWidth(450);
+            button.setPrefHeight(50);
+            button.getStylesheets().add(getClass().getResource("/edu.shadowauction.css/AuctionSelectionStyleSheet.css").toExternalForm());
+            button.getStyleClass().add("button");
+            //button.setStyle("-fx-background-color: #BA49FE; -fx-font-size: 14px; -fx-text-fill: #000000;");
             button.setOnAction(event -> {
                 // Realizar acciones según la subasta seleccionada
                 System.out.println("Subasta seleccionada: " + subasta.getNombre());
