@@ -51,9 +51,9 @@ public class AuctionSelectionController {
             Parent root = fxmlLoader.load();
             AuctionController controller = fxmlLoader.getController();
             controller.setItemsToAuction(itemsFromAuction);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            Scene newScene = new Scene(root, 800, 640);
+            Stage curStage = (Stage) parentNode.getScene().getWindow();
+            curStage.setScene(newScene);
 
             // Resto del código para mostrar la vista...
         } catch (IOException e) {

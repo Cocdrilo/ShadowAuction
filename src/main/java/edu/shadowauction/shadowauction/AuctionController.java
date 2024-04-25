@@ -48,7 +48,7 @@ public class AuctionController implements AuctionEventListener {
     @FXML
     private TextArea bidLog;
     private Timeline timeline;
-    private int seconds = 8 ;
+    private int seconds = 15 ;
     private int milliseconds = 0;
     //Necesario para que el temporizador no se ejecute varias veces a la vez
     private boolean timerRunning = false;
@@ -206,9 +206,9 @@ public class AuctionController implements AuctionEventListener {
             timeline.stop();
             timerRunning = false;
         }
-        seconds = 8;
+        seconds = 15;
         milliseconds = 0;
-        temporizador.setText("08:00");
+        temporizador.setText("15:00");
         startTimer();
         auctioneerLabel.setText(genericAuctioneer.obtenerFraseAleatoria());
     }
@@ -278,7 +278,7 @@ public class AuctionController implements AuctionEventListener {
     }
     public void startNextSale(){
         temporizador.setDisable(false);
-        temporizador.setText("08:00");
+        temporizador.setText("15:00");
         updateLastClientBidder("");
         bidLog.clear();
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {showItemAfterFade();showAuctioneerAfterFade();auctioneerLabel.setText("¡Siguiente artículo!");}));

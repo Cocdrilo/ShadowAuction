@@ -17,7 +17,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="temporizador" blendMode="HARD_LIGHT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="219.0" style="-fx-border-color: black; -fx-border-width: 1.5px; -fx-background-color: transparent;" text="08:00">
+      <Button fx:id="temporizador" blendMode="HARD_LIGHT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="219.0" style="-fx-border-color: black; -fx-border-width: 1.5px; -fx-background-color: transparent;" text="15:00">
          <font>
             <Font size="30.0" />
          </font>
