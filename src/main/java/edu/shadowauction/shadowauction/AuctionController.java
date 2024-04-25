@@ -62,14 +62,27 @@ public class AuctionController implements AuctionEventListener {
         this.genericAuctioneer = new Auctioneer("/images/Auctioneer.jpeg");
         this.clients = new ArrayList<>();
         // Crear una lista de artículos para subastar 2 articulos
-        itemsToAuction.add(new Item("Pintura", "Una pintura de un paisaje", "/images/Success.png", 100, 1));
-        itemsToAuction.add(new Item("Reloj", "Un reloj de pared antiguo", "/images/Warning.png", 50, 2));
     }
 
     public void initialize() throws Exception {
         showAuctioneerAfterFade();
         createClient();
-        showItemAfterFade();
+        showItemAfterCharging();
+    }
+
+    public void showItemAfterCharging(){
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+            try {
+                showItemAfterFade();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }));
+        timeline.play();
+    }
+
+    public void setItemsToAuction(ArrayList<Item> itemsToAuction){
+        this.itemsToAuction = itemsToAuction;
     }
 
 
