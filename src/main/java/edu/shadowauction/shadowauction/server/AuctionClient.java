@@ -56,7 +56,12 @@ public class AuctionClient {
             for (AuctionEventListener listener : listeners) {
                 listener.onChatMessage(chatMessage, username);
             }
-        }else{
+        } else if(message.startsWith("Item Info: ")){
+            for (AuctionEventListener listener : listeners) {
+                listener.onChatMessage(message.substring(11), "Server");
+            }
+        }
+        else{
             System.out.println("Mensaje recibido: " + message);
         }
     }

@@ -47,6 +47,8 @@ public class AuctionController implements AuctionEventListener {
     private TextField chatInput;
     @FXML
     private TextArea bidLog;
+    @FXML
+    private Label winnerLabel;
     private Timeline timeline;
     private int seconds = 15 ;
     private int milliseconds = 0;
@@ -71,7 +73,7 @@ public class AuctionController implements AuctionEventListener {
     }
 
     public void showItemAfterCharging(){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), event -> {
             try {
                 showItemAfterFade();
             } catch (Exception e) {
@@ -103,8 +105,11 @@ public class AuctionController implements AuctionEventListener {
 
     private void showItemAfterFade() {
         Item item = itemsToAuction.get(0);
+        String message;
         itemImage.setImage(new Image(getClass().getResourceAsStream(item.getImage())));
-        itemLabel.setText(item.getName() + " - " + item.getDescription());
+        message = "Item Info: " + item.getDescription() + "\n";
+        chatScreen.appendText(message);
+        broadcastChatMessage(message);
         biggestBid.setText(item.getStartingPrice() + " €");
     }
 
@@ -155,7 +160,6 @@ public class AuctionController implements AuctionEventListener {
 
     private boolean sameUserBids() {
         if(Objects.equals(lastClientBidder, Usuario.getInstance(null).getUsername())) {
-            System.out.println("No puedes pujar dos veces seguidas");
             errorLabel.setText("No puedes pujar dos veces seguidas");
             errorLabel.setOpacity(1);
             hideErrorLabelAfter2Seconds();
@@ -224,13 +228,6 @@ public class AuctionController implements AuctionEventListener {
         biggestBid.setText(newBid + " €");
     }
 
-
-    @FXML
-    private void onActionBotonTimer(){
-        auctioneerLabel.setText(genericAuctioneer.obtenerFraseAleatoria());
-        startTimer();
-    }
-
     @FXML
     private void startTimer() {
         timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> {
@@ -244,7 +241,14 @@ public class AuctionController implements AuctionEventListener {
                 System.out.println("Tiempo terminado");
                 broadcastTimerUpdate("Tiempo terminado");
                 try {
-                    endItemSale();
+                    System.out.println("Decido");
+                    if (timerRunning) {
+                        endItemSale();
+                        System.out.println("EndItemSale");
+                    } else {
+                        System.out.println("AfterTimer");
+                        progressAfterTimer();
+                    }
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
@@ -259,6 +263,11 @@ public class AuctionController implements AuctionEventListener {
         timerRunning = true;
     }
 
+    private void stopTimer() {
+        timeline.stop();
+        timerRunning = false;
+    }
+
     public void broadcastTimerUpdate(String timeString) {
         for (AuctionClient client : this.clients) {
             WebSocketClientTest.sendMessage(client, "Timer update: " + timeString);
@@ -268,21 +277,51 @@ public class AuctionController implements AuctionEventListener {
     public void endItemSale() throws FileNotFoundException {
         auctioneerImage.setImage(new Image(getClass().getResourceAsStream("/images/AuctioneerSoldGif.gif")));
         auctioneerLabel.setText("¡Vendido!");
-        itemsToAuction.remove(0);
-        if (itemsToAuction.isEmpty()) {
-            temporizador.setDisable(true);
-            temporizador.setText("No hay más artículos");
-        } else {
-            startNextSale();
-        }
+        disableBidButtons(true);
+        winnerLabel.setText("¡Enhorabuena " + lastClientBidder + "!");
+        seconds = 20;
+        milliseconds = 0;
+        temporizador.setText("20:00");
+        timerRunning = false;
+        progressAfterTimer();
+        startTimer();
     }
+
+    private void progressAfterTimer(){
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(20), event ->{
+            stopTimer();
+            System.out.println("Siguiente artículo");
+            winnerLabel.setText("");
+            itemsToAuction.remove(0);
+            if (itemsToAuction.isEmpty()) {
+                winnerLabel.setText("¡Fin de la subasta!");
+            } else {
+                System.out.println("Siguiente artículo");
+                startNextSale();
+            }
+        }));
+        timeline.play();
+    }
+
     public void startNextSale(){
         temporizador.setDisable(false);
         temporizador.setText("15:00");
+        seconds = 15;
+        milliseconds = 0;
+        stopTimer();
         updateLastClientBidder("");
         bidLog.clear();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {showItemAfterFade();showAuctioneerAfterFade();auctioneerLabel.setText("¡Siguiente artículo!");}));
-        timeline.play();
+        disableBidButtons(false);
+        showItemAfterFade();
+        showAuctioneerAfterFade();
+        auctioneerLabel.setText("¡Siguiente artículo!");
+    }
+
+    private void disableBidButtons(boolean disable){
+        botonX12.setDisable(disable);
+        botonX15.setDisable(disable);
+        botonX20.setDisable(disable);
+
     }
 
     public void onActionSendChatMessage() {
@@ -302,7 +341,9 @@ public class AuctionController implements AuctionEventListener {
     }
     @Override
     public void onChatMessage(String chatMessage,String userName) {
-        Platform.runLater(() -> chatScreen.appendText(userName+":"+ chatMessage + "\n"));
+        Platform.runLater(() -> {
+            chatScreen.appendText(userName + ":" + chatMessage + "\n");
+        });
     }
     private void broadcastChatMessage(String message) {
         for (AuctionClient client : this.clients) {

@@ -8,6 +8,7 @@ module edu.shadowauction.shadowauction {
     requires javax.websocket.api;
     requires tyrus.server;
     requires tyrus.client;
+    requires org.fxmisc.richtext;
 
     opens edu.shadowauction.shadowauction to javafx.fxml;
     exports edu.shadowauction.shadowauction;

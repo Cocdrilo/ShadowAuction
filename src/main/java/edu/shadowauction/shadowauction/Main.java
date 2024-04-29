@@ -22,9 +22,9 @@ public class Main extends Application {
         mainStage.show();
         mainStage.setMinHeight(605);
         mainStage.setMinWidth(804);
+        mainStage.setResizable(false);
     }
     public static void main(String[] args) {
-
         launch();
     }
 }
