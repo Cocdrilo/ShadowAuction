@@ -40,7 +40,7 @@ public class LoginScreenController {
             //Usuario usuario = Usuario.getInstance(JDBC.getUser(email));
             Usuario usuario = Usuario.getInstance("Cocdrilo");
             System.out.println("Login Successful");
-            fader.fadeNextScene(rootPane,2,"AuctionSelection.view.fxml");
+            fader.fadeNextScene(rootPane,2,"userMainMenu.view.fxml");
         }else{
             setLabelForLogInErrors(email);
         }

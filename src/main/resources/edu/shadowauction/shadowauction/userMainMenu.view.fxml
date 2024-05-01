@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" style="-fx-background-color: #431161;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.UserMainMenuController">
+   <children>
+      <AnchorPane layoutX="62.0" layoutY="91.0" prefHeight="502.0" prefWidth="677.0" style="-fx-background-color: #60178C;">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="420.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Privacy%20Politics.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="201.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/MYItems.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="519.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/CustomerSupport.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="308.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Receipts.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="95.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/BoxIcon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="auctionSelectionButton" layoutX="149.0" layoutY="402.0" mnemonicParsing="false" onAction="#auctionSelectionButtonOnAction" prefHeight="93.0" prefWidth="391.0" styleClass="button-53" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="Select an auction to join">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="uploadArticlesButton" layoutX="54.0" layoutY="56.0" mnemonicParsing="false" onAction="#uploadArticlesButtonOnAction" prefHeight="132.0" prefWidth="154.0" styleClass="button-52" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="Upload Articles" />
+            <Button fx:id="myReceiptsButton" layoutX="268.0" layoutY="56.0" mnemonicParsing="false" onAction="#myReceiptsButtonOnAction" prefHeight="132.0" prefWidth="154.0" styleClass="button-52" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="Receipts" />
+            <Button fx:id="adminSupportButton" layoutX="478.0" layoutY="56.0" mnemonicParsing="false" onAction="#adminSupportButtonOnAction" prefHeight="132.0" prefWidth="154.0" styleClass="button-52" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="Admin Support" />
+            <Button fx:id="myArticlesButton" layoutX="160.0" layoutY="223.0" mnemonicParsing="false" onAction="#myArticlesButtonOnAction" prefHeight="132.0" prefWidth="154.0" styleClass="button-52" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="My Items" />
+            <Button fx:id="PrivacyPolicyButton" layoutX="379.0" layoutY="223.0" mnemonicParsing="false" onAction="#PrivacyPolicyButtonOnAction" prefHeight="132.0" prefWidth="154.0" styleClass="button-52" stylesheets="@../../../edu.shadowauction.css/ButtonsStyleSheet.css" text="Privacy&amp;Politics">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="434.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Auction.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="61.0" prefHeight="17.0" prefWidth="70.0" text="Services" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/MiniLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="33.0" layoutX="663.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Success.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="699.0" layoutY="23.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="156.0" layoutY="609.0" prefHeight="17.0" prefWidth="507.0" text="Condiciones de Uso y Venta ©Shadow Auction 2024-2024 y afiliados" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="15.0" prefHeight="17.0" prefWidth="130.0" text="Shadow Auction" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
