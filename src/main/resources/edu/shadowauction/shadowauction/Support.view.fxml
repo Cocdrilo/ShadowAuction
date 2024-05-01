@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,8 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="649.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.SupportController">
+<AnchorPane fx:id="parentNode" prefHeight="649.0" prefWidth="866.0" style="-fx-background-color: #431161;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.SupportController">
    <children>
+      <AnchorPane layoutX="43.0" layoutY="55.0" prefHeight="571.0" prefWidth="765.0" style="-fx-background-color: #60178C;" />
       <Button layoutX="75.0" layoutY="549.0" mnemonicParsing="false" text="Cancelar">
          <font>
             <Font name="Tw Cen MT" size="18.0" />
@@ -49,5 +51,29 @@
       <TextField layoutX="75.0" layoutY="279.0" prefHeight="34.0" prefWidth="251.0" promptText="Enter your email" />
       <TextField layoutX="75.0" layoutY="185.0" prefHeight="34.0" prefWidth="251.0" promptText="Enter your full name" />
       <TextArea layoutX="75.0" layoutY="386.0" prefHeight="155.0" prefWidth="251.0" promptText="Detail your problems" />
+      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/MiniLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="130.0" text="Shadow Auction" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="myProfile" layoutX="712.0" layoutY="7.0" onMouseClicked="#myProfileOnAction" prefHeight="48.0" prefWidth="147.0">
+         <children>
+            <Label layoutX="44.0" layoutY="8.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Success.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

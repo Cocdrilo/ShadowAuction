@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -29,8 +30,28 @@ public class AuctionSelectionController {
     @FXML
     private AnchorPane parentNode;
 
+    @FXML
+    public ImageView goHomeIcon;
+    @FXML
+    public AnchorPane myProfile;
+    private FadeUtilityClass fader;
     private ArrayList<String> test;
     private ArrayList<Item> testItems;
+
+
+    public AuctionSelectionController(){
+        this.fader = new FadeUtilityClass();
+    }
+
+
+    @FXML
+    public void goHomeIconOnAction() throws IOException {
+        fader.fadeNextScene(parentNode,2,"userMainMenu.view.fxml");
+    }
+    @FXML
+    public void myProfileOnAction() throws IOException {
+        fader.fadeNextScene(parentNode,2,"MyProfile.view.fxml");
+    }
 
     @FXML
     private void onActionBotonTimer(){
