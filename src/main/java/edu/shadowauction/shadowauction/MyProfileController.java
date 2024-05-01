@@ -1,6 +1,5 @@
 package edu.shadowauction.shadowauction;
 
-import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,6 +28,11 @@ public class MyProfileController {
 
     public MyProfileController() {
         this.fader = new FadeUtilityClass();
+    }
+    public void initialize(){
+        usernameLabel.setText(Usuario.getInstance(null).getUsername());
+        emailLabel.setText(Usuario.getInstance(null).getEmail());
+        passwordLabel.setText(Usuario.getInstance(null).getPassword());
     }
 
     @FXML
