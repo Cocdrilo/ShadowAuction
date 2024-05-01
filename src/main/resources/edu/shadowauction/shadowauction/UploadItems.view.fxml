@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" style="-fx-background-color: #431161;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.UploadItemsController">
+    <children>
+        <AnchorPane layoutX="62.0" layoutY="91.0" prefHeight="502.0" prefWidth="677.0" style="-fx-background-color: #60178C;">
+         <children>
+            <ImageView fitHeight="109.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/BoxIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="113.0" layoutY="16.0" prefHeight="17.0" prefWidth="130.0" text="Add Products" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="22.0" layoutY="138.0" prefHeight="25.0" prefWidth="251.0" promptText="Product Name" />
+            <TextArea layoutX="22.0" layoutY="198.0" prefHeight="109.0" prefWidth="251.0" promptText="Product Description" />
+            <Button fx:id="seleccionarImagenesButton" layoutX="393.0" layoutY="114.0" mnemonicParsing="false" onAction="#onSelectImagesButtonClick" prefHeight="74.0" prefWidth="195.0" text="Select Images" />
+            <ComboBox fx:id="tipoEnvioComboBox" layoutX="393.0" layoutY="225.0" onAction="#onSelectTipoEnvio" prefHeight="56.0" prefWidth="195.0" promptText="Shippment Options" />
+            <TextArea layoutX="22.0" layoutY="343.0" prefHeight="139.0" prefWidth="582.0" promptText="Special comments regarding everything, " />
+            <Spinner fx:id="precioMinimoSpinner" editable="true" layoutX="319.0" layoutY="21.0" />
+            <Label layoutX="484.0" layoutY="25.0" prefHeight="17.0" prefWidth="130.0" text="Min Starting Price" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+        </AnchorPane>
+        <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/MiniLogo.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="33.0" layoutX="663.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/Success.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="699.0" layoutY="23.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="156.0" layoutY="609.0" prefHeight="17.0" prefWidth="507.0" text="Condiciones de Uso y Venta ©Shadow Auction 2024-2024 y afiliados" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="48.0" layoutY="15.0" prefHeight="17.0" prefWidth="130.0" text="Shadow Auction" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -11,6 +11,11 @@
    <children>
       <AnchorPane layoutX="62.0" layoutY="91.0" prefHeight="502.0" prefWidth="677.0" style="-fx-background-color: #60178C;">
          <children>
+            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="434.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Auction.PNG" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="420.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Privacy%20Politics.png" />
@@ -50,11 +55,6 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <ImageView fitHeight="73.0" fitWidth="105.0" layoutX="434.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/Auction.PNG" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <Label layoutX="70.0" layoutY="61.0" prefHeight="17.0" prefWidth="70.0" text="Services" textFill="WHITE">
