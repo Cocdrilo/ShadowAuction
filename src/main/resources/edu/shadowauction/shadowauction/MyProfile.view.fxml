@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" style="-fx-background-color: #431161;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.MyProfileController">
+    <children>
+        <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/MiniLogo.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="156.0" layoutY="609.0" prefHeight="17.0" prefWidth="507.0" text="Condiciones de Uso y Venta ©Shadow Auction 2024-2024 y afiliados" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="48.0" layoutY="15.0" prefHeight="17.0" prefWidth="130.0" text="Shadow Auction" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Label>
+      <ImageView fitHeight="251.0" fitWidth="288.0" layoutX="24.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Auctioneer.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="closeSessionButton" layoutX="48.0" layoutY="396.0" mnemonicParsing="false" onAction="#closeSessionButtonOnAction" prefHeight="97.0" prefWidth="204.0" text="Cerrar Sesión" />
+      <Button fx:id="modifyProfileButton" layoutX="451.0" layoutY="403.0" mnemonicParsing="false" onAction="#modifyProfileButtonOnAction" prefHeight="97.0" prefWidth="212.0" text="Cambiar Datos" />
+      <TextField fx:id="usernameLabel" editable="false" layoutX="302.0" layoutY="82.0" prefHeight="27.0" prefWidth="212.0" promptText="Username" />
+      <TextField fx:id="passwordLabel" editable="false" layoutX="302.0" layoutY="270.0" prefHeight="27.0" prefWidth="212.0" promptText="Password" />
+      <TextField fx:id="emailLabel" editable="false" layoutX="302.0" layoutY="168.0" prefHeight="27.0" prefWidth="212.0" promptText="Email" />
+      <Label fx:id="errorLabel" layoutX="524.0" layoutY="157.0" opacity="0.0" prefHeight="68.0" prefWidth="258.0" styleClass="warning" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" text="Label" />
+    </children>
+</AnchorPane>

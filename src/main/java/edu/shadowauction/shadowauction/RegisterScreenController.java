@@ -30,28 +30,28 @@ public class RegisterScreenController {
 
     private FadeUtilityClass fader;
 
-    public RegisterScreenController(){
+    public RegisterScreenController() {
         this.fader = new FadeUtilityClass();
     }
 
     public void registerButtonOnAction() throws IOException {
         String username = usernameField.getText();
-        if(!isValidUsernameLastName(username)){
+        if (!ValidationUtils.isValidUsername(username, registerErrorLabel)) {
             return;
         }
 
         String email = emailField.getText();
-        if(!isValidEmail(email) || !emailAlreadyRegistered(email)){
+        if (!ValidationUtils.isValidEmail(email, registerErrorLabel) || !ValidationUtils.emailAlreadyRegistered(email, registerErrorLabel)) {
             return;
         }
 
         String lastName = lastNameField.getText();
-        if (!isValidUsernameLastName(lastName)){
+        if (!ValidationUtils.isValidUsername(lastName, registerErrorLabel)) {
             return;
         }
 
         String password = passwordField.getText();
-        if(!checkPasswordSecurity(password)){
+        if (!ValidationUtils.checkPasswordSecurity(password, registerErrorLabel)) {
             return;
         }
 
@@ -63,68 +63,7 @@ public class RegisterScreenController {
         loginHyperlinkOnAction();
     }
 
-    public boolean isValidUsernameLastName(String checkedField){
-        if(checkedField.isEmpty()){
-            registerErrorLabel.setText("Username field is empty");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        return true;
-    }
-
-    public boolean isValidEmail(String email) {
-        if (!email.contains("@")) {
-            registerErrorLabel.setText("Email is invalid: missing @ symbol");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        if (!email.contains(".")) {
-            registerErrorLabel.setText("Email is invalid: missing dot (.)");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        if (!email.matches("[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+")) {
-            registerErrorLabel.setText("Email is invalid: incorrect format");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        return true;
-    }
-
-    public boolean emailAlreadyRegistered(String email){
-        if(JDBC.checkUser(email)){
-            registerErrorLabel.setText("Email already registered");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        return true;
-    }
-
-    public boolean checkPasswordSecurity(String passwordCheck){
-        if(passwordCheck.length() < 8){
-            registerErrorLabel.setText("Password is too short");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        if(!passwordCheck.matches(".*[0-9].*")){
-            registerErrorLabel.setText("Password must contain a number");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        if(!passwordCheck.matches(".*[A-Z].*")){
-            registerErrorLabel.setText("Password must contain an uppercase letter");
-            registerErrorLabel.setOpacity(1);
-            return false;
-        }
-        return true;
-    }
-
     public void loginHyperlinkOnAction() throws IOException {
-        fader.fadeNextScene(rootPane,2,"Login.view.fxml");
+        fader.fadeNextScene(rootPane, 2, "Login.view.fxml");
     }
-
-
-
-
-    
 }

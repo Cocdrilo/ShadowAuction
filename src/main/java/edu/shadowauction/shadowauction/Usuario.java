@@ -22,4 +22,8 @@ public class Usuario {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public void closeSession() {
+        instance = null;
+    }
 }

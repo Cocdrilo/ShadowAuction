@@ -23,9 +23,11 @@ public class UserMainMenuController {
     @FXML
     public Button adminSupportButton;
     @FXML
-    public Button PrivacyPolicyButton;
+    public Button privacyPolicyButton;
     @FXML
     public ImageView goHomeIcon;
+    @FXML
+    public AnchorPane myProfile;
 
     public UserMainMenuController(){
         this.fader = new FadeUtilityClass();
@@ -38,7 +40,7 @@ public class UserMainMenuController {
     }
     @FXML
     public void uploadArticlesButtonOnAction() throws IOException {
-        fader.fadeNextScene(parentNode,2,"UploadArticles.view.fxml");
+        fader.fadeNextScene(parentNode,2,"UploadItems.view.fxml");
     }
     @FXML
     public void myArticlesButtonOnAction() throws IOException {
@@ -59,6 +61,10 @@ public class UserMainMenuController {
     @FXML
     public void goHomeIconOnAction() throws IOException {
         fader.fadeNextScene(parentNode,2,"userMainMenu.view.fxml");
+    }
+    @FXML
+    public void myProfileOnAction() throws IOException {
+        fader.fadeNextScene(parentNode,2,"MyProfile.view.fxml");
     }
 
 
