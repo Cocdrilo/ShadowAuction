@@ -43,7 +43,7 @@
             <Font name="Arial Black" size="55.0" />
          </font>
       </Label>
-      <Button fx:id="botonX12" layoutX="615.0" layoutY="107.0" mnemonicParsing="false" onAction="#onActionBotonX12" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css">
+      <Button fx:id="botonX12" layoutX="615.0" layoutY="107.0" mnemonicParsing="false" onAction="#onActionBotonX11" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>

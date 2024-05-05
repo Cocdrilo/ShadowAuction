@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -60,8 +61,8 @@ public class AuctionSelectionController {
 
     public void initialize() throws Exception {
         this.testItems = new ArrayList<Item>();
-        testItems.add(new Item("Cuadro Testeo", "Lorem Impsum est ","/images/cuadroTest.png",100,0));
-        testItems.add(new Item("Cuadro Testeo 2", "Lorem Impsum est ","/images/cuadroTest.png",200,0));
+        testItems.add(new Item("Cuadro Testeo", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),100,0));
+        testItems.add(new Item("Cuadro Testeo 2", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),200,0));
         System.out.println(testItems.get(0).getName());
     }
     private ArrayList<Auction> subastas;
@@ -70,8 +71,10 @@ public class AuctionSelectionController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Auction.view.fxml"));
             Parent root = fxmlLoader.load();
+
             AuctionController controller = fxmlLoader.getController();
             controller.setItemsToAuction(itemsFromAuction);
+
             Scene newScene = new Scene(root, 800, 640);
             Stage curStage = (Stage) parentNode.getScene().getWindow();
             curStage.setScene(newScene);

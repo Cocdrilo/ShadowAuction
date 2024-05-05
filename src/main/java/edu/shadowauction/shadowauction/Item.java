@@ -1,13 +1,15 @@
 package edu.shadowauction.shadowauction;
 
+import javafx.scene.image.Image;
+
 public class Item {
     private String name;
     private String description;
-    private String image;
+    private Image image;
     private int startingPrice;
     private int id;
 
-    public Item(String name, String description, String image, int startingPrice, int id) {
+    public Item(String name, String description, Image image, int startingPrice, int id) {
         this.name = name;
         this.description = description;
         this.image = image;
@@ -31,11 +33,11 @@ public class Item {
         this.description = description;
     }
 
-    public String getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 

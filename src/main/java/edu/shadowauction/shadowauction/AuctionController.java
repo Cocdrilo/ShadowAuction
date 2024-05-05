@@ -24,7 +24,6 @@ import java.util.Objects;
 public class AuctionController implements AuctionEventListener {
 
     private Auctioneer genericAuctioneer;
-
     @FXML
     private Button temporizador;
     @FXML
@@ -69,11 +68,10 @@ public class AuctionController implements AuctionEventListener {
     public void initialize() throws Exception {
         showAuctioneerAfterFade();
         createClient();
-        showItemAfterCharging();
     }
 
     public void showItemAfterCharging(){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.01), event -> {
             try {
                 showItemAfterFade();
             } catch (Exception e) {
@@ -85,6 +83,7 @@ public class AuctionController implements AuctionEventListener {
 
     public void setItemsToAuction(ArrayList<Item> itemsToAuction){
         this.itemsToAuction = itemsToAuction;
+        showItemAfterCharging();
     }
 
 
@@ -106,7 +105,7 @@ public class AuctionController implements AuctionEventListener {
     private void showItemAfterFade() {
         Item item = itemsToAuction.get(0);
         String message;
-        itemImage.setImage(new Image(getClass().getResourceAsStream(item.getImage())));
+        itemImage.setImage(item.getImage());
         message = "Item Info: " + item.getDescription() + "\n";
         chatScreen.appendText(message);
         broadcastChatMessage(message);
@@ -114,11 +113,11 @@ public class AuctionController implements AuctionEventListener {
     }
 
     @FXML
-    private void onActionBotonX12() {
+    private void onActionBotonX11() {
         if (sameUserBids()) return;
         String currentBidText = biggestBid.getText();
         int currentBid = extractAmount(currentBidText);
-        int newBid = (int) Math.round(currentBid * 1.2);
+        int newBid = (int) Math.round(currentBid * 1.1);
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();

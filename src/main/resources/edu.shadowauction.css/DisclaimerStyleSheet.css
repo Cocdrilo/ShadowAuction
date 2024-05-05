@@ -68,4 +68,7 @@
     -fx-background-color: black, white;
     -fx-background-insets: 0,1;
     -fx-padding: 50;
+    -fx-font-size: 16px;
+    -fx-font-scale: 1.2;
+    -fx-alignment: center;
 }
