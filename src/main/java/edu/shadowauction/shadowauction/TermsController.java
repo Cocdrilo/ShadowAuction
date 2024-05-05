@@ -1,6 +1,7 @@
 package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -13,11 +14,17 @@ public class TermsController {
     public AnchorPane myProfile;
     @FXML
     public AnchorPane parentNode;
+    @FXML
+    public Label username;
 
     private FadeUtilityClass fader;
 
     public TermsController(){
         this.fader = new FadeUtilityClass();
+    }
+
+    public void initialize(){
+        username.setText(Usuario.getInstance(null,null).getUsername());
     }
 
 

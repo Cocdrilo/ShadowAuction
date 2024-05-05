@@ -1,10 +1,7 @@
 package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -23,6 +20,8 @@ public class UploadItemsController {
 
     @FXML
     public AnchorPane parentNode;
+    @FXML
+    public Label username;
 
     @FXML
     public Button seleccionarImagenesButton;
@@ -40,6 +39,7 @@ public class UploadItemsController {
 
     // Método para inicializar la interfaz gráfica y establecer las opciones de tipo de envío
     public void initialize() {
+        username.setText(Usuario.getInstance(null,null).getUsername());
         // Agregar las opciones de tipo de envío al ComboBox
         tipoEnvioComboBox.getItems().addAll("Envío estándar", "Envío express", "Envío prioritario", "Recogida en tienda");
 

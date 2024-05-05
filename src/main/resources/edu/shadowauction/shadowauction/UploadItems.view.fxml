@@ -48,7 +48,7 @@
                 <Image url="@../../../images/DefaultUserImage.png" />
             </image>
         </ImageView>
-        <Label layoutX="699.0" layoutY="23.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
+        <Label fx:id="username" layoutX="699.0" layoutY="23.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="15.0" />
             </font>

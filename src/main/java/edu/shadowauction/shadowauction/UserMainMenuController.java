@@ -2,6 +2,7 @@ package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -12,6 +13,8 @@ public class UserMainMenuController {
     private FadeUtilityClass fader;
     @FXML
     public AnchorPane parentNode;
+    @FXML
+    public Label username;
     @FXML
     public Button auctionSelectionButton;
     @FXML
@@ -33,6 +36,9 @@ public class UserMainMenuController {
         this.fader = new FadeUtilityClass();
     }
 
+    public void initialize(){
+        username.setText(Usuario.getInstance(null,null).getUsername());
+    }
 
     @FXML
     public void auctionSelectionButtonOnAction() throws IOException {

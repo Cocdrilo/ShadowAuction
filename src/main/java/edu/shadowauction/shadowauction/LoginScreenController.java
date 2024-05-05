@@ -37,8 +37,8 @@ public class LoginScreenController {
 
         if(JDBC.validateLogin(email, password)){
             //Con la Base De Datos Funcionando se puede descomentar la siguiente linea y comentar la siguiente que es para testeo sin Base de Datos
-            //Usuario usuario = Usuario.getInstance(JDBC.getUser(email));
-            Usuario usuario = Usuario.getInstance("Cocdrilo");
+            Usuario usuario = Usuario.getInstance(JDBC.getUser(email), email);
+            //Usuario usuario = Usuario.getInstance("Cocdrilo");
             System.out.println("Login Successful");
             fader.fadeNextScene(rootPane,2,"userMainMenu.view.fxml");
         }else{

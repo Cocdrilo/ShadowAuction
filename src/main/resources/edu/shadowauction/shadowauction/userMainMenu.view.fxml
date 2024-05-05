@@ -11,7 +11,7 @@
    <children>
       <AnchorPane fx:id="myProfile" layoutX="652.0" layoutY="8.0" onMouseClicked="#myProfileOnAction" prefHeight="48.0" prefWidth="147.0">
          <children>
-            <Label layoutX="44.0" layoutY="8.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
+            <Label fx:id="username" layoutX="44.0" layoutY="8.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>

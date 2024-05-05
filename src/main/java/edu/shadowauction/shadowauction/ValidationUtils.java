@@ -25,7 +25,7 @@ public class ValidationUtils {
             errorLabel.setOpacity(1);
             return false;
         }
-        if (!email.matches("[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+")) {
+        if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
             errorLabel.setText("Email is invalid: incorrect format");
             errorLabel.setOpacity(1);
             return false;

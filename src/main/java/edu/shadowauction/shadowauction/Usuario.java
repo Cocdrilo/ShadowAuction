@@ -7,13 +7,14 @@ public class Usuario {
     private String email;
     private String password;
 
-    private Usuario(String username) {
+    private Usuario(String username, String email) {
         this.username = username;
+        this.email = email;
     }
 
-    public static Usuario getInstance(String username) {
+    public static Usuario getInstance(String username, String email) {
         if (instance == null) {
-            instance = new Usuario(username);
+            instance = new Usuario(username, email);
         }
         return instance;
     }

@@ -1,6 +1,7 @@
 package edu.shadowauction.shadowauction;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -14,6 +15,8 @@ public class SupportController {
     public AnchorPane myProfile;
     @FXML
     public AnchorPane parentNode;
+    @FXML
+    public Label username;
 
     private FadeUtilityClass fader;
 
@@ -21,6 +24,9 @@ public class SupportController {
         this.fader = new FadeUtilityClass();
     }
 
+    public void initialize(){
+        username.setText(Usuario.getInstance(null,null).getUsername());
+    }
 
     @FXML
     public void goHomeIconOnAction() throws IOException {

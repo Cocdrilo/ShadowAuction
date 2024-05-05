@@ -89,7 +89,7 @@ public class AuctionController implements AuctionEventListener {
 
     public void createClient() throws Exception {
         AuctionClient client = new AuctionClient(); // Crear una nueva instancia de AuctionClient
-        client.setUsername(Usuario.getInstance(null).getUsername()); // Establecer el nombre de usuario
+        client.setUsername(Usuario.getInstance(null,null).getUsername()); // Establecer el nombre de usuario
         this.clients.add(client); // Agregar el cliente a la lista de clientes
         AuctionClient.addAuctionEventListener(this);
         WebSocketClientTest.connectClient(client); // Conectar el cliente al servidor
@@ -121,7 +121,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
-        bidLogUpdate(Usuario.getInstance(null).getUsername());
+        bidLogUpdate(Usuario.getInstance(null,null).getUsername());
     }
 
     @FXML
@@ -135,7 +135,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
-        bidLogUpdate(Usuario.getInstance(null).getUsername());
+        bidLogUpdate(Usuario.getInstance(null,null).getUsername());
     }
 
     @FXML
@@ -147,7 +147,7 @@ public class AuctionController implements AuctionEventListener {
         updateBidLabel(newBid);
         broadcastBidUpdate(newBid);
         restartTimer();
-        bidLogUpdate(Usuario.getInstance(null).getUsername());
+        bidLogUpdate(Usuario.getInstance(null,null).getUsername());
     }
 
     public void broadcastBidUpdate(int newBid) {
@@ -158,14 +158,14 @@ public class AuctionController implements AuctionEventListener {
 
 
     private boolean sameUserBids() {
-        if(Objects.equals(lastClientBidder, Usuario.getInstance(null).getUsername())) {
+        if(Objects.equals(lastClientBidder, Usuario.getInstance(null,null).getUsername())) {
             errorLabel.setText("No puedes pujar dos veces seguidas");
             errorLabel.setOpacity(1);
             hideErrorLabelAfter2Seconds();
             return true;
         }
-        System.out.println("Puja realizada por: " + Usuario.getInstance(null).getUsername());
-        updateLastClientBidder(Usuario.getInstance(null).getUsername());
+        System.out.println("Puja realizada por: " + Usuario.getInstance(null,null).getUsername());
+        updateLastClientBidder(Usuario.getInstance(null,null).getUsername());
         return false;
     }
 

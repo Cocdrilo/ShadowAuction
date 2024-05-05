@@ -30,9 +30,9 @@ public class MyProfileController {
         this.fader = new FadeUtilityClass();
     }
     public void initialize(){
-        usernameLabel.setText(Usuario.getInstance(null).getUsername());
-        emailLabel.setText(Usuario.getInstance(null).getEmail());
-        passwordLabel.setText(Usuario.getInstance(null).getPassword());
+        usernameLabel.setText(Usuario.getInstance(null,null).getUsername());
+        emailLabel.setText(Usuario.getInstance(null,null).getEmail());
+        passwordLabel.setText(Usuario.getInstance(null,null).getPassword());
     }
 
     @FXML
@@ -42,7 +42,7 @@ public class MyProfileController {
 
     @FXML
     public void closeSessionButtonOnAction() throws IOException {
-        Usuario.getInstance(null).closeSession();
+        Usuario.getInstance(null,null).closeSession();
         fader.fadeNextScene(parentNode, 2, "Main.view.fxml");
     }
 

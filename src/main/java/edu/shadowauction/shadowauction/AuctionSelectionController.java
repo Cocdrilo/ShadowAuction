@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -25,7 +26,8 @@ import java.util.ArrayList;
 public class AuctionSelectionController {
     @FXML
     private Button boton;
-
+    @FXML
+    private Label username;
     @FXML
     private ScrollPane scrollPane;
     @FXML
@@ -61,6 +63,7 @@ public class AuctionSelectionController {
 
     public void initialize() throws Exception {
         this.testItems = new ArrayList<Item>();
+        username.setText(Usuario.getInstance(null,null).getUsername());
         testItems.add(new Item("Cuadro Testeo", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),100,0));
         testItems.add(new Item("Cuadro Testeo 2", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),200,0));
         System.out.println(testItems.get(0).getName());
