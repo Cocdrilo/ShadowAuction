@@ -7,9 +7,9 @@ import java.sql.*;
 
 public class JDBC {
 
-    public static String url_db = "jdbc:mysql://localhost:3306/sadb_schema";
-    public static String user_db = "root";
-    public static String password_db= "240103";
+    public static String url_db = "jdbc:mysql://159.223.205.190:3306/ShadowAuctionDB";
+    public static String user_db = "shadowAuction";
+    public static String password_db= "shadowAuction";
 
     public static boolean register(String username, String lastname, String email, String userpassword){
         try{
@@ -18,7 +18,7 @@ public class JDBC {
                 Connection connection = DriverManager.getConnection(url_db, user_db, password_db);
 
                 PreparedStatement insertUser = connection.prepareStatement(
-                        "INSERT INTO USERS(username, lastname, email, password) VALUES(?,?,?,?)"
+                        "INSERT INTO users(username, lastname, email, password) VALUES(?,?,?,?)"
                 );
 
                 insertUser.setString(1, username);
@@ -40,7 +40,7 @@ public class JDBC {
             Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
 
             PreparedStatement checkUserExists = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE EMAIL = ?"
+                    "SELECT * FROM users WHERE EMAIL = ?"
             );
             checkUserExists.setString(1,email);
 
@@ -61,7 +61,7 @@ public class JDBC {
             Connection connection = DriverManager.getConnection(url_db,user_db,password_db);
 
             PreparedStatement validateUser = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE EMAIL = ? AND PASSWORD = ?"
+                    "SELECT * FROM users WHERE EMAIL = ? AND PASSWORD = ?"
             );
 
             validateUser.setString(1,email);
@@ -83,7 +83,7 @@ public class JDBC {
             Connection connection = DriverManager.getConnection(url_db, user_db, password_db);
 
             PreparedStatement getUser = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE EMAIL = ?"
+                    "SELECT * FROM users WHERE EMAIL = ?"
             );
             getUser.setString(1, email);
 
