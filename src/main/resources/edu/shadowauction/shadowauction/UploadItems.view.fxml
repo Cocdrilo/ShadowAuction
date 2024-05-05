@@ -45,7 +45,7 @@
         </ImageView>
         <ImageView fitHeight="44.0" fitWidth="33.0" layoutX="663.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/Success.png" />
+                <Image url="@../../../images/DefaultUserImage.png" />
             </image>
         </ImageView>
         <Label layoutX="699.0" layoutY="23.0" prefHeight="17.0" prefWidth="81.0" text="Username" textFill="WHITE">

@@ -27,7 +27,7 @@
         </Label>
       <ImageView fitHeight="251.0" fitWidth="288.0" layoutX="24.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/Auctioneer.jpeg" />
+            <Image url="@../../../images/DefaultUserImage.png" />
          </image>
       </ImageView>
       <Button fx:id="closeSessionButton" layoutX="48.0" layoutY="396.0" mnemonicParsing="false" onAction="#closeSessionButtonOnAction" prefHeight="97.0" prefWidth="204.0" text="Cerrar Sesión" />
