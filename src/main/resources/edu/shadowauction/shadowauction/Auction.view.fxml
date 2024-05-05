@@ -10,8 +10,8 @@
 
 <AnchorPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.AuctionController">
    <children>
-      <Button fx:id="botonX15" layoutX="615.0" layoutY="254.0" mnemonicParsing="false" onAction="#onActionBotonX15" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" />
-      <Button fx:id="botonX20" layoutX="614.0" layoutY="440.0" mnemonicParsing="false" onAction="#onActionBotonX20" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" />
+      <Button fx:id="botonX15" layoutX="615.0" layoutY="269.0" mnemonicParsing="false" onAction="#onActionBotonX15" prefHeight="144.0" prefWidth="165.0" styleClass="biddingPad2" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" />
+      <Button fx:id="botonX20" layoutX="610.0" layoutY="456.0" mnemonicParsing="false" onAction="#onActionBotonX20" prefHeight="144.0" prefWidth="175.0" styleClass="biddingPad3" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" />
       <Label fx:id="biggestBid" layoutX="305.0" layoutY="332.0" prefHeight="33.0" prefWidth="175.0" style="-fx-border-color: #474747; -fx-alignment: center;" text="10 €">
          <font>
             <Font size="23.0" />
@@ -26,25 +26,6 @@
       <Label fx:id="auctioneerLabel" layoutX="463.0" layoutY="5.0" prefHeight="116.0" prefWidth="337.0" styleClass="chat-bubble" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="Arial Black" size="10.0" />
-         </font>
-      </Label>
-      <Button fx:id="botonX12" layoutX="615.0" layoutY="75.0" mnemonicParsing="false" onAction="#onActionBotonX12" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font></Button>
-      <Label layoutX="651.0" layoutY="100.0" mouseTransparent="true" prefHeight="60.0" prefWidth="64.0" text="X 1.2" textFill="#85bc66">
-         <font>
-            <Font name="Arial Black" size="21.0" />
-         </font>
-      </Label>
-      <Label layoutX="651.0" layoutY="279.0" mouseTransparent="true" prefHeight="60.0" prefWidth="64.0" text="X 1.5" textFill="#85bc66">
-         <font>
-            <Font name="Arial Black" size="21.0" />
-         </font>
-      </Label>
-      <Label layoutX="658.0" layoutY="466.0" mouseTransparent="true" prefHeight="60.0" prefWidth="64.0" text="X  2" textFill="#85bc66">
-         <font>
-            <Font name="Arial Black" size="21.0" />
          </font>
       </Label>
       <ImageView fx:id="itemImage" fitHeight="133.0" fitWidth="227.0" layoutX="311.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
@@ -62,5 +43,9 @@
             <Font name="Arial Black" size="55.0" />
          </font>
       </Label>
+      <Button fx:id="botonX12" layoutX="615.0" layoutY="107.0" mnemonicParsing="false" onAction="#onActionBotonX12" prefHeight="133.0" prefWidth="151.0" styleClass="biddingPad" stylesheets="@../../../edu.shadowauction.css/DisclaimerStyleSheet.css">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>

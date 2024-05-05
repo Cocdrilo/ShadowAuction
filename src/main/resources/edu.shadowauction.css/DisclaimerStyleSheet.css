@@ -28,21 +28,37 @@
 }
 
 .biddingPad{
-    -fx-background-image: url("../images/BiddingPad.png");
-    -fx-background-size: 125%;
+    -fx-background-image: url("../images/Subir1Dedo.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-border-style: none;
+}
+.biddingPad:hover,.biddingPad2:hover,.biddingPad3:hover{
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-rotate: 20;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 10,0,0,0 );
+    -fx-border-style: none;
+}
+.biddingPad2{
+    -fx-background-image: url("../images/Subir3Dedos.png");
+    -fx-background-size: 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
     -fx-min-width: 50px;
     -fx-min-height: 50px;
 }
-.biddingPad:hover{
-    -fx-background-image: url("../images/BiddingPadHover.png");
-    -fx-background-size: 125%;
+.biddingPad3{
+    -fx-background-image: url("../images/Duplicar.png");
+    -fx-background-size: 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
-    -fx-padding :0;
     -fx-min-width: 50px;
     -fx-min-height: 50px;
 }
