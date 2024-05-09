@@ -39,6 +39,5 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="555.0" style="-fx-background-color: #60178C;" />
         </content>
       </ScrollPane>
-      <Button fx:id="boton" layoutX="374.0" layoutY="540.0" mnemonicParsing="false" onAction="#onActionBotonTimer" text="Button" />
    </children>
 </AnchorPane>
