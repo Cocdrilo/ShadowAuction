@@ -38,7 +38,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" onMouseClicked="#goHomeIconOnAction" onMouseEntered="#handleMouseEnterHome" onMouseExited="#handleMouseExitHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/MiniLogo.png" />
          </image>
@@ -48,5 +48,6 @@
             <Font name="Arial Bold" size="15.0" />
          </font>
       </Label>
+      <Label fx:id="homeMessage" layoutX="44.0" layoutY="51.0" opacity="0.0" text="Home" textFill="WHITE" />
    </children>
 </AnchorPane>
