@@ -62,9 +62,13 @@ public class AuctionSelectionController {
     public void initialize() throws Exception {
         this.testItems = new ArrayList<Item>();
         username.setText(Usuario.getInstance(null,null).getUsername());
-        testItems.add(new Item("Cuadro Testeo", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),100,0));
-        testItems.add(new Item("Cuadro Testeo 2", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),200,0));
+        testItems.add(new Item("Contra", "Juego Matamarcianos de tipo run and gun inspirados en películas como Rambo o Alien. ",new Image(getClass().getResourceAsStream("/images/Contra.png")),40,0));
+        testItems.add(new Item("Doom clasico", "Clasico juego que cualquiera a jugado hasta en su frigorifico ahora en cartucho clasico ",new Image(getClass().getResourceAsStream("/images/doom.png")),50,0));
+        testItems.add(new Item("Mario Atari", "Clasico juego de mario hecho para la consola Atari ahora en su cartucho clasico ",new Image(getClass().getResourceAsStream("/images/MarioAtari.png")),50,0));
+        testItems.add(new Item("Valis", "Clasico juego japones para la consola Atari ahora en su cartucho original ",new Image(getClass().getResourceAsStream("/images/Valis.png")),60,0));
+        testItems.add(new Item("GreedIsland", "Una de las pocas copias de GreedIsland solo para usuarios preparados no devolvemos dinero en caso de muerte ",new Image(getClass().getResourceAsStream("/images/GreedIsland.png")),1000,0));
         test();
+
     }
 
     public void createAuction(ArrayList<Item> itemsFromAuction){
