@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
@@ -24,6 +25,8 @@ import java.util.Objects;
 public class AuctionController implements AuctionEventListener {
 
     private Auctioneer genericAuctioneer;
+    @FXML
+    private AnchorPane parentNode;
     @FXML
     private Button temporizador;
     @FXML
@@ -57,12 +60,15 @@ public class AuctionController implements AuctionEventListener {
     private List<AuctionClient> clients; // Lista para almacenar los clientes conectados
     private String lastClientBidder = "";
     private ArrayList<Item> itemsToAuction = new ArrayList<>();
+    private FadeUtilityClass fader;
 
     public AuctionController() throws FileNotFoundException {
         this.serverMain = WebSocketServerMain.getInstance();
         this.genericAuctioneer = new Auctioneer("/images/Auctioneer.jpeg");
         this.clients = new ArrayList<>();
+        this.fader = new FadeUtilityClass();
         // Crear una lista de artículos para subastar 2 articulos
+
     }
 
     public void initialize() throws Exception {
@@ -108,7 +114,7 @@ public class AuctionController implements AuctionEventListener {
         itemImage.setImage(item.getImage());
         message = "Item Info: " + item.getDescription() + "\n";
         chatScreen.appendText(message);
-        broadcastChatMessage(message);
+        //broadcastChatMessage(message);
         biggestBid.setText(item.getStartingPrice() + " €");
     }
 
@@ -294,6 +300,14 @@ public class AuctionController implements AuctionEventListener {
             itemsToAuction.remove(0);
             if (itemsToAuction.isEmpty()) {
                 winnerLabel.setText("¡Fin de la subasta!");
+                Timeline timeline1 = new Timeline(new KeyFrame(Duration.seconds(5), event1 -> {
+                    try {
+                        fader.fadeNextScene(parentNode, 2, "userMainMenu.view.fxml");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }));
+                timeline1.play();
             } else {
                 System.out.println("Siguiente artículo");
                 startNextSale();

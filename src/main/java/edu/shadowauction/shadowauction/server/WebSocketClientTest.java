@@ -15,7 +15,7 @@ public class WebSocketClientTest {
 
     public static void connectClient(AuctionClient client) throws Exception {
         ClientManager clientManager = ClientManager.createClient();
-        session = (Session) clientManager.connectToServer(client, new URI(SERVER)); // Aquí se utiliza la variable session estática
+        session = clientManager.connectToServer(client, new URI(SERVER)); // Aquí se utiliza la variable session estática
         System.out.println("Client connected to server");
     }
 
