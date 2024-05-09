@@ -15,7 +15,7 @@ public class WebSocketClientTest {
 
     public static void connectClient(AuctionClient client) throws Exception {
         ClientManager clientManager = ClientManager.createClient();
-        session = clientManager.connectToServer(client, new URI(SERVER)); // Aquí se utiliza la variable session estática
+        session = (Session) clientManager.connectToServer(client, new URI(SERVER)); // Aquí se utiliza la variable session estática
         System.out.println("Client connected to server");
     }
 
@@ -39,7 +39,7 @@ public class WebSocketClientTest {
             AuctionClient auctionClient = new AuctionClient();
             auctionClient.setUsername(user);
 
-            Session session = client.connectToServer(auctionClient, new URI(SERVER));
+            Session session = (Session) client.connectToServer(auctionClient, new URI(SERVER));
             System.out.println("You are logged in as: " + user);
 
             // send messages to server

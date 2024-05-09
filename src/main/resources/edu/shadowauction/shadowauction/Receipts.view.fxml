@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="parentNode" prefHeight="562.0" prefWidth="727.0" style="-fx-background-color: #431161;" stylesheets="@../../../edu.shadowauction.css/FormularyStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.ReceiptsController">
+<AnchorPane fx:id="parentNode" prefHeight="562.0" prefWidth="727.0" style="-fx-background-color: #431161;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.shadowauction.shadowauction.ReceiptsController">
    <children>
       <AnchorPane fx:id="myProfile" layoutX="580.0" layoutY="1.0" onMouseClicked="#myProfileOnAction" prefHeight="48.0" prefWidth="147.0">
          <children>
@@ -26,14 +26,14 @@
       </AnchorPane>
       <AnchorPane layoutX="45.0" layoutY="60.0" prefHeight="465.0" prefWidth="618.0" style="-fx-background-color: #60178C;">
          <children>
-            <ScrollPane layoutX="14.0" layoutY="73.0" prefHeight="377.0" prefWidth="367.0" style="-fx-background-color: #60178C;">
+            <ScrollPane layoutX="14.0" layoutY="73.0" prefHeight="377.0" prefWidth="367.0">
               <content>
-                <AnchorPane fx:id="receiptsPane" minHeight="0.0" minWidth="0.0" opacity="0.75" prefHeight="375.0" prefWidth="365.0" style="-fx-background-color: #9754BA;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="334.0" />
               </content>
             </ScrollPane>
-            <Text layoutX="132.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recibos">
+            <Text layoutX="21.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recibos">
                <font>
-                  <Font name="System Bold" size="38.0" />
+                  <Font name="Tw Cen MT" size="38.0" />
                </font>
             </Text>
          </children>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -35,7 +36,7 @@
       </ImageView>
       <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="123.0" layoutY="78.0" prefHeight="454.0" prefWidth="553.0" style="-fx-background-color: #60178C;">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="562.0" style="-fx-background-color: #60178C;" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="555.0" style="-fx-background-color: #60178C;" />
         </content>
       </ScrollPane>
    </children>
