@@ -101,15 +101,17 @@
     -fx-background-color: transparent;
     -fx-background-image: url("../images/Warning.png")
 }
-.receipt_green{
-    -fx-font-size: 16px;
+
+.transparency {
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-background: rgba(0,0,0,0.5);
+    -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-text-fill: #034F1C;
-    -fx-padding: 10px;
+    -fx-font-size: 18px;
 }
-.receipt_red{
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #4F0303;
-    -fx-padding: 10px;
+
+.antiTabPaneHaceRaro{
+    -fx-font-size: 15px;
 }
+

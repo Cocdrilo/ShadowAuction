@@ -41,8 +41,6 @@ public class AuctionSelectionController {
     private ArrayList<String> test;
     private ArrayList<Item> testItems;
 
-    private ArrayList<Auction> subastas;
-
 
     public AuctionSelectionController(){
         this.fader = new FadeUtilityClass();
@@ -58,14 +56,19 @@ public class AuctionSelectionController {
         fader.fadeNextScene(parentNode,2,"MyProfile.view.fxml");
     }
 
+    @FXML
+    private void onActionBotonTimer(){
+        test();
+    }
 
     public void initialize() throws Exception {
         this.testItems = new ArrayList<Item>();
         username.setText(Usuario.getInstance(null,null).getUsername());
         testItems.add(new Item("Cuadro Testeo", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),100,0));
         testItems.add(new Item("Cuadro Testeo 2", "Lorem Impsum est ",new Image(getClass().getResourceAsStream("/images/CuadroTest.png")),200,0));
-        test();
+        System.out.println(testItems.get(0).getName());
     }
+    private ArrayList<Auction> subastas;
 
     public void createAuction(ArrayList<Item> itemsFromAuction){
         try {
@@ -85,24 +88,26 @@ public class AuctionSelectionController {
         }
     }
 
-
+    @FXML
     private void test(){
         // Inicializar la lista de subastas
         subastas = new ArrayList<>();
-        subastas.add(new Auction("Subasta De Juegos Retro", LocalDateTime.of(2024, 4, 11, 10, 0),LocalDateTime.of(2024, 4, 11, 12, 0),testItems));
+        subastas.add(new Auction("Subasta 1", LocalDateTime.of(2024, 4, 11, 10, 0), LocalDateTime.of(2024, 4, 11, 12, 0),testItems));
+        subastas.add(new Auction("Subasta 2", LocalDateTime.of(2024, 4, 12, 15, 0), LocalDateTime.of(2024, 4, 12, 17, 0),testItems));
+
         // Crear un VBox para contener los botones de subasta
         VBox vbox = new VBox();
         vbox.setSpacing(10);
         vbox.setPadding(new Insets(10));
         vbox.setAlignment(Pos.CENTER);
-        vbox.setPrefWidth(552);
+        vbox.setPrefWidth(550);
         vbox.setPrefHeight(452);
         vbox.setBackground(new Background(new BackgroundFill(Color.rgb(96,23,140), null, null)));
         //vbox.setPrefHeight(443);
 
         // Agregar un botón para cada subasta
         for (Auction subasta : subastas) {
-            String buttonText = subasta.getNombre() + " - Inicio: " + subasta.getInicio();
+            String buttonText = subasta.getNombre() + " - Inicio: " + subasta.getInicio() + " - Fin: " + subasta.getFin();
             Button button = new Button(buttonText);
             button.setPrefWidth(450);
             button.setPrefHeight(50);
