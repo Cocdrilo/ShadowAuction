@@ -26,9 +26,9 @@
       </AnchorPane>
       <AnchorPane layoutX="45.0" layoutY="60.0" prefHeight="465.0" prefWidth="618.0" style="-fx-background-color: #60178C;">
          <children>
-            <ScrollPane layoutX="14.0" layoutY="73.0" prefHeight="377.0" prefWidth="367.0">
+            <ScrollPane layoutX="14.0" layoutY="73.0" prefHeight="377.0" prefWidth="367.0" style="-fx-background-color: #60178C;">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="334.0" />
+                <AnchorPane fx:id="receiptsPane" minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="364.0" style="-fx-background-color: purple;" />
               </content>
             </ScrollPane>
             <Text layoutX="21.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recibos">
