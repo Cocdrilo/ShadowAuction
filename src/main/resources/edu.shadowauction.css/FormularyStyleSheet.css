@@ -101,3 +101,17 @@
     -fx-background-color: transparent;
     -fx-background-image: url("../images/Warning.png")
 }
+
+.transparency {
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-background: rgba(0,0,0,0.5);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.antiTabPaneHaceRaro{
+    -fx-font-size: 15px;
+}
+
