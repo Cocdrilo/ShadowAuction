@@ -103,18 +103,4 @@ public class MyProfileController {
         passwordLabel.setEditable(editable);
     }
 
-    @FXML
-    public Label homeMessage = new Label();
-    @FXML
-    public void handleMouseEnterHome() {
-        // Lógica para cuando el ratón entra en el ImageView
-        homeMessage.setOpacity(1.0);
-    }
-
-    @FXML
-    public void handleMouseExitHome() {
-        // Lógica para cuando el ratón sale del ImageView
-        homeMessage.setOpacity(0.0);
-    }
-
 }

@@ -51,7 +51,7 @@
       <TextField layoutX="75.0" layoutY="279.0" prefHeight="34.0" prefWidth="251.0" promptText="Enter your email" />
       <TextField layoutX="75.0" layoutY="185.0" prefHeight="34.0" prefWidth="251.0" promptText="Enter your full name" />
       <TextArea layoutX="75.0" layoutY="386.0" prefHeight="155.0" prefWidth="251.0" promptText="Detail your problems" />
-      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" onMouseEntered="#handleMouseEnterHome" onMouseExited="#handleMouseExitHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" layoutY="7.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/MiniLogo.png" />
          </image>
@@ -75,6 +75,5 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="homeMessage" layoutX="44.0" layoutY="51.0" opacity="0.0" text="Home" textFill="WHITE" />
    </children>
 </AnchorPane>

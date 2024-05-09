@@ -39,7 +39,7 @@ public class UploadItemsController {
 
     // Método para inicializar la interfaz gráfica y establecer las opciones de tipo de envío
     public void initialize() {
-        username.setText(Usuario.getInstance(null, null).getUsername());
+        username.setText(Usuario.getInstance(null,null).getUsername());
         // Agregar las opciones de tipo de envío al ComboBox
         tipoEnvioComboBox.getItems().addAll("Envío estándar", "Envío express", "Envío prioritario", "Recogida en tienda");
 
@@ -84,19 +84,5 @@ public class UploadItemsController {
         int precioMinimo = precioMinimoSpinner.getValue();
         // Aquí puedes hacer algo con el precio mínimo, como guardarlo en una variable o utilizarlo de alguna otra manera
         System.out.println("Precio mínimo seleccionado: " + precioMinimo);
-    }
-
-    @FXML
-    public Label homeMessage = new Label();
-    @FXML
-    public void handleMouseEnterHome() {
-        // Lógica para cuando el ratón entra en el ImageView
-        homeMessage.setOpacity(1.0);
-    }
-
-    @FXML
-    public void handleMouseExitHome() {
-        // Lógica para cuando el ratón sale del ImageView
-        homeMessage.setOpacity(0.0);
     }
 }

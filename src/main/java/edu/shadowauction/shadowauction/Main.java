@@ -14,7 +14,7 @@ import java.net.URL;
 public class Main extends Application {
     @Override
     public void start(Stage mainStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Terms.view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.view.fxml"));
         Scene introScene = new Scene(fxmlLoader.load(), 800, 640);
         mainStage.setTitle("Shadow Auction");
         mainStage.setScene(introScene);
