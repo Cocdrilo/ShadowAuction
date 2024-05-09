@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -34,26 +35,54 @@
             <Font name="Arial Bold" size="15.0" />
          </font>
       </Label>
-      <TabPane layoutY="62.0" prefHeight="471.0" prefWidth="821.0" style="-fx-background-color: #60178C;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="62.0" prefHeight="471.0" prefWidth="821.0" style="-fx-background-color: #431161;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Legal Policies">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea blendMode="LIGHTEN" editable="false" prefHeight="441.0" prefWidth="822.0" style="-fx-text-fill: #431161;" text="En Shadow Auction, nos comprometemos a cumplir con todas las leyes y regulaciones aplicables en relación con nuestra plataforma de subastas en línea. Al utilizar nuestra aplicación, aceptas cumplir con nuestros Términos de Servicio y esta Política Legal.&#10;&#10;Nuestra empresa opera de acuerdo con los principios de transparencia, integridad y responsabilidad. Nos esforzamos por garantizar que todas nuestras actividades comerciales cumplan con las leyes y regulaciones pertinentes, incluyendo pero no limitado a las leyes de protección al consumidor, de propiedad intelectual, de privacidad de datos y de comercio electrónico.&#10;&#10;Nos reservamos el derecho de tomar medidas adecuadas en caso de violación de estas políticas o de la ley, incluida la suspensión o terminación de cuentas de usuarios que no cumplan con nuestros estándares éticos y legales. Además, cooperaremos plenamente con las autoridades legales en caso de investigaciones relacionadas con actividades ilegales o sospechosas en nuestra plataforma." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
             </content>
           </Tab>
           <Tab text="Anonymity policies">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="441.0" prefWidth="822.0" style="-fx-text-fill: #431161;" text="En Shadow Auction, valoramos la privacidad y el anonimato de nuestros usuarios. Reconocemos que algunos usuarios pueden preferir permanecer anónimos al utilizar nuestra plataforma de subastas en línea, y respetamos ese derecho.&#10;&#10;Cuando te registras en nuestra aplicación, no requerimos que reveles tu identidad real. Puedes utilizar un seudónimo o nombre de usuario que no esté vinculado a tu información personal. Sin embargo, es importante tener en cuenta que algunas transacciones pueden requerir la verificación de identidad por razones legales o de seguridad.&#10;&#10;Nos comprometemos a proteger la privacidad de tus datos personales de acuerdo con nuestra Política de Privacidad. Utilizamos medidas de seguridad avanzadas para proteger la información de nuestros usuarios y no compartimos información personal identificable con terceros sin tu consentimiento, excepto cuando sea necesario para cumplir con la ley o proteger nuestros derechos legítimos." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab text="Auction Selling Policies">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="441.0" prefWidth="822.0" style="-fx-text-fill: #431161;" text="Para garantizar la calidad y la integridad de nuestra plataforma de subastas en línea, en Shadow Auction tenemos ciertas políticas sobre cómo aceptamos objetos para su venta.&#10;&#10;Antes de poner un objeto a subasta, nuestro equipo realiza una evaluación exhaustiva para determinar su autenticidad, condición y valor estimado. Esto puede incluir la verificación de documentos de autenticidad, la inspección física del objeto y la investigación de su historial de propiedad.&#10;&#10;Nos comprometemos a garantizar que todos los objetos listados en nuestra plataforma sean genuinos y estén en condiciones satisfactorias para su venta. Nos reservamos el derecho de rechazar objetos que no cumplan con nuestros estándares o que puedan infringir las leyes aplicables.&#10;&#10;Además, en algunos casos, podemos solicitar documentación adicional o realizar verificaciones de autenticidad para ciertos tipos de objetos, especialmente aquellos de alto valor o con características particulares. Esto se hace para proteger a nuestros usuarios y garantizar la integridad de nuestras subastas." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Personal items to send Policies">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="441.0" prefWidth="822.0" style="-fx-text-fill: #431161;" text="En Shadow Auction, nos comprometemos a cumplir con todas las leyes y regulaciones aplicables en relación con nuestra plataforma de subastas en línea. Al utilizar nuestra aplicación, aceptas cumplir con nuestros Términos de Servicio y esta Política Legal.&#10;&#10;Nuestra empresa opera de acuerdo con los principios de transparencia, integridad y responsabilidad. Nos esforzamos por garantizar que todas nuestras actividades comerciales cumplan con las leyes y regulaciones pertinentes, incluyendo pero no limitado a las leyes de protección al consumidor, de propiedad intelectual, de privacidad de datos y de comercio electrónico.&#10;&#10;Nos reservamos el derecho de tomar medidas adecuadas en caso de violación de estas políticas o de la ley, incluida la suspensión o terminación de cuentas de usuarios que no cumplan con nuestros estándares éticos y legales. Además, cooperaremos plenamente con las autoridades legales en caso de investigaciones relacionadas con actividades ilegales o sospechosas en nuestra plataforma." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
                </content>
             </Tab>
         </tabs>
