@@ -25,7 +25,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" onMouseClicked="#goHomeIconOnAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goHomeIcon" fitHeight="48.0" fitWidth="54.0" onMouseClicked="#goHomeIconOnAction" onMouseEntered="#handleMouseEnterHome" onMouseExited="#handleMouseExitHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/MiniLogo.png" />
          </image>
@@ -87,5 +87,6 @@
             </Tab>
         </tabs>
       </TabPane>
+      <Label fx:id="homeMessage" layoutX="34.0" layoutY="41.0" opacity="0.0" text="Home" textFill="WHITE" />
    </children>
 </AnchorPane>
